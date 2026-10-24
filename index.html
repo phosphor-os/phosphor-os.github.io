@@ -126,9 +126,6 @@ section > .wrap > p.intro { color: var(--dim); max-width: var(--measure); margin
 .feature p { color: var(--dim); margin: 0 0 0.8rem; }
 .feature p:last-child { margin-bottom: 0; }
 
-.phones { display: flex; gap: clamp(0.75rem, 2vw, 1.5rem); align-items: flex-start; }
-.phones img { width: calc((100% - 2 * clamp(0.75rem, 2vw, 1.5rem)) / 3); border-radius: 18px; box-shadow: 0 0 0 1px var(--line); }
-.phones img:nth-child(2) { margin-top: 2.5rem; }
 
 /* ---- how it sits on MiSTer: real layers, bottom to top ---- */
 .stack { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column-reverse; gap: 6px; max-width: 46rem; }
@@ -199,20 +196,20 @@ footer p { margin: 0; max-width: 40rem; }
 <main>
 	<div class="wrap hero">
 		<h1>Your MiSTer, as a console.</h1>
-		<p class="lede">Phosphor is unofficial custom firmware for the <strong>SuperStation One</strong>, built on <strong>mainline MiSTer and its Linux</strong>. Pick up a controller and your games are there with box art, ready to play. Memory cards, Bluetooth, WiFi and saves are a few button presses away, on the TV or on your phone.</p>
+		<p class="lede">Phosphor is unofficial custom firmware for the <strong>SuperStation One</strong>, built on <strong>mainline MiSTer and its Linux</strong>. Pick up a controller and your games are there with box art, ready to play. Memory cards, Bluetooth, WiFi and saves are a few button presses away, on the TV or from your PC.</p>
 		<p class="cta"><a class="go" href="#download">Download the beta</a><span>0.27.24 · SD card image, update and Windows app</span></p>
 		<div class="tv">
-			<div class="screen"><img src="img/tv-home.png" width="1280" height="720" alt="Phosphor's home screen: the library by kind of system (Disc, Cartridge, Handheld, Arcade) and the last game played"></div>
+			<div class="screen"><img src="img/tv-home.png" width="1280" height="720" alt="Phosphor's home screen: the library by kind of system (Disc, Cartridge, Handheld, Arcade, Computer) and the last game played"></div>
 		</div>
 	</div>
 
 	<section id="tour">
 		<div class="wrap">
 			<h2>Everything from the couch</h2>
-			<p class="intro">These are real screens, drawn by Phosphor's own code at 1280 by 720. On a 1080p TV it draws every pixel at 1080p.</p>
+			<p class="intro">These are real screens, drawn by Phosphor's own code at 1280 by 720 (on a 1080p TV it draws every pixel at 1080p), and two from Phosphor for Windows. The games and box art are made up for the pictures.</p>
 
 			<div class="feature">
-				<div class="shot"><img src="img/tv-games.png" width="1280" height="720" loading="lazy" alt="A list of games with box art, year and play time"></div>
+				<div class="shot"><img src="img/tv-games.png" width="1280" height="720" loading="lazy" alt="A system's games: the list, and the highlighted game's box art, year, developer, players, genre and description"></div>
 				<div>
 					<h3>Your library, found for you</h3>
 					<p>Phosphor finds the games on the SD card, a USB drive, NVMe or a network share, works out what each one is, and fetches box art and details from sources you choose.</p>
@@ -221,15 +218,24 @@ footer p { margin: 0; max-width: 40rem; }
 			</div>
 
 			<div class="feature flip">
-				<div class="shot"><img src="img/tv-ports.png" width="1280" height="720" loading="lazy" alt="Controllers and memory cards: two PlayStation controllers shown live, memory card backups"></div>
+				<div class="shot"><img src="img/tv-tester.png" width="1280" height="720" loading="lazy" alt="The controller tester: a drawing of the controller with the pressed buttons lit, stick positions and trigger percentages"></div>
 				<div>
-					<h3>Memory cards from the front ports</h3>
-					<p>Back up a PlayStation memory card to the SD card, or put a backup on a card. The card is always backed up first.</p>
-					<p>The ports are only read while this screen is open. The rest of the time they belong to your games, the way MiSTer intends.</p>
+					<h3>Controllers, mapped and tested</h3>
+					<p>Every USB and Bluetooth controller is listed with a drawing that matches it: Xbox, PlayStation, Switch, Saturn, arcade sticks and leverless layouts.</p>
+					<p>Map buttons and sticks the way MiSTer does, then open the tester and watch each press light up on the drawing. Mappings are backed up before every change and can be put back to automatic.</p>
 				</div>
 			</div>
 
 			<div class="feature">
+				<div class="shot"><img src="img/win-memcards.png" width="1440" height="900" loading="lazy" alt="Phosphor for Windows: a memory card from the library, with each save's icon, title, game and blocks, and buttons to copy, move or download saves"></div>
+				<div>
+					<h3>Memory cards, save by save</h3>
+					<p>Back up the PlayStation memory cards in the front ports into a library on the SD card, one version per backup. Copy or move single saves between cards, download them for an emulator, and put a whole card back.</p>
+					<p>The card is always backed up before anything is written. The ports are only read while you're using them; the rest of the time they belong to your games.</p>
+				</div>
+			</div>
+
+			<div class="feature flip">
 				<div class="shot"><img src="img/tv-bluetooth.png" width="1280" height="720" loading="lazy" alt="Bluetooth: pair a controller, the paired controllers and whether they're connected"></div>
 				<div>
 					<h3>Bluetooth and WiFi without a keyboard</h3>
@@ -237,7 +243,7 @@ footer p { margin: 0; max-width: 40rem; }
 				</div>
 			</div>
 
-			<div class="feature flip">
+			<div class="feature">
 				<div class="shot"><img src="img/tv-settings-panel.png" width="1280" height="720" loading="lazy" alt="Settings with Cloud saves highlighted; the panel beside the list shows where saves go, when they were last sent, and what the setting does"></div>
 				<div>
 					<h3>Settings that explain themselves</h3>
@@ -246,23 +252,32 @@ footer p { margin: 0; max-width: 40rem; }
 				</div>
 			</div>
 
-			<div class="feature">
-				<div class="shot"><img src="img/tv-cloud-saves.png" width="1280" height="720" loading="lazy" alt="Cloud saves: where saves go, when they were last sent, getting saves back"></div>
+			<div class="feature flip">
+				<div class="shot"><img src="img/tv-cloud-saves.png" width="1280" height="720" loading="lazy" alt="Cloud saves: where saves go, when they were last sent, send now and get saves back"></div>
 				<div>
 					<h3>Saves kept safe</h3>
 					<p>Backups of saves and settings on the SD card, NVMe or your NAS, taken when you leave a game and once a day. Cloud saves to your own WebDAV, SFTP, SMB, Google Drive, Dropbox or OneDrive, shared between MiSTers if you like.</p>
 				</div>
 			</div>
 
-			<div class="feature flip">
-				<div class="shot"><img src="img/tv-restore-points.png" width="1280" height="720" loading="lazy" alt="Updates and restore points: settings a Linux update can reset, and restore points saved before each update"></div>
+			<div class="feature">
+				<div class="shot"><img src="img/tv-storage.png" width="1280" height="720" loading="lazy" alt="Storage: the SD card and an NVMe drive with their size and free space, quick check, speed test and repair"></div>
 				<div>
-					<h3>Updates you can undo</h3>
-					<p>Update and Update All run exactly as MiSTer runs them, with a restore point saved first. If an update breaks something, roll back: Main, the menu core and Linux come back, with Linux downloaded from MiSTer-devel and checked before use.</p>
-					<p>If a Linux update puts your network address or SSH settings back to stock, Phosphor says so and puts them back when you ask.</p>
+					<h3>Drives you can check</h3>
+					<p>See how full the SD card, NVMe and USB drives are, and check them from the couch: a quick check, whether Windows will complain about the card, a speed test, the NVMe drive's own health report, and a file system repair for NVMe and USB drives.</p>
+					<p>Checks only read, except the speed test and repair, which say so first.</p>
 				</div>
 			</div>
-			
+
+			<div class="feature flip">
+				<div class="shot"><img src="img/tv-updating.png" width="1280" height="720" loading="lazy" alt="Updating Phosphor from 0.27.23 to 0.27.24: a progress bar and the steps, with the modules being updated"></div>
+				<div>
+					<h3>Updates you can watch, and undo</h3>
+					<p>Copy an update to the SD card, pick it on the TV and press Install. Phosphor keeps a copy of the version you had, shows each step on screen, and restarts the SuperStation by itself when it's done. Going back to the version before is one press.</p>
+					<p>MiSTer's Update and Update All run exactly as MiSTer runs them, with a restore point saved first, so Main, the menu core and Linux can be rolled back too.</p>
+				</div>
+			</div>
+
 			<div class="feature">
 				<div class="shot"><img src="img/tv-power.png" width="1280" height="720" loading="lazy" alt="Diagnostics with the Power section: the MiSTer lost power three times during updates, and what helps (example events)"></div>
 				<div>
@@ -271,15 +286,13 @@ footer p { margin: 0; max-width: 40rem; }
 					<p>After three, it tells you and says what helps. Switching off while idle is never counted. The events in this picture are an example.</p>
 				</div>
 			</div>
+
 			<div class="feature flip">
-				<div class="shot phones">
-					<img src="img/phone-2-home.png" width="493" height="1069" loading="lazy" alt="Phone app: the library with games that need box art or details">
-					<img src="img/phone-5-game.png" width="493" height="1069" loading="lazy" alt="Phone app: a game's page with box art and Play on TV">
-					<img src="img/phone-14-cards.png" width="493" height="1069" loading="lazy" alt="Phone app: controllers and memory cards">
-				</div>
+				<div class="shot"><img src="img/win-home.png" width="1440" height="900" loading="lazy" alt="Phosphor for Windows: the library by kind of system, tools, and the last game played with Play on TV"></div>
 				<div>
-					<h3>A phone app for the fiddly parts</h3>
-					<p>Paired with a code on your home network: browse the library, fix box art with a photo, edit details, start a game on the TV, manage saves, memory cards and Bluetooth.</p>
+					<h3>Phosphor for Windows</h3>
+					<p>The same library on your PC, paired with a code from the TV. Box art and details are looked up on the PC, which is much faster, then sent to the SuperStation.</p>
+					<p>Edit details, start a game on the TV, manage memory cards, controllers, drives, network, video filters and MiSTer.ini, and flash or test an SD card. Everything stays on your home network.</p>
 				</div>
 			</div>
 		</div>
@@ -294,7 +307,7 @@ footer p { margin: 0; max-width: 40rem; }
 				<li class="ours"><b>MiSTer Main + Phosphor's API</b><span>MiSTer's own program, plus a small local interface so Phosphor can work with it instead of around it.</span></li>
 				<li class="ours"><b>Menu core + front ports</b><span>MiSTer's menu core, plus PlayStation controller and memory card access, off until Phosphor asks.</span></li>
 				<li class="ours"><b>phosphord and modules</b><span>The library, box art, backups, cloud saves, restore points and health checks. Each does its work when you ask, not on a timer.</span></li>
-				<li class="ours"><b>Phosphor and the phone app</b><span>What you see and hold.</span></li>
+				<li class="ours"><b>Phosphor and Phosphor for Windows</b><span>What you see and hold.</span></li>
 			</ol>
 			<p class="stack-key"><i></i>Phosphor's parts. The changes to MiSTer's own programs will be published under the GPL, like MiSTer.</p>
 		</div>
@@ -305,7 +318,7 @@ footer p { margin: 0; max-width: 40rem; }
 			<h2>How it treats your system</h2>
 			<p class="intro">A few rules everything in Phosphor follows.</p>
 			<div class="promises">
-				<div><h3>Your settings stay home</h3><p>WiFi passwords and Bluetooth pairings live on the SuperStation One, your phone, NVMe or NAS. Never on the internet.</p></div>
+				<div><h3>Your settings stay home</h3><p>WiFi passwords and Bluetooth pairings live on the SuperStation One, your PC, NVMe or NAS. Never on the internet.</p></div>
 				<div><h3>A backup before every change</h3><p>Anything Phosphor changes is backed up first and can be put back from the same screen.</p></div>
 				<div><h3>Only when you press the button</h3><p>Nothing installs, updates or rewrites itself. Cores are yours to manage. Looking for games and fetching box art start when you choose them.</p></div>
 				<div><h3>Quiet in the menu</h3><p>The DE10-Nano has one small CPU and a modest power budget. Phosphor sleeps between button presses, so the menu idles well under 20% CPU and an update gets the machine to itself.</p></div>

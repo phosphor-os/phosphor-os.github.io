@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Phosphor downloads</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+	--glass: #0e0e10; --panel: #17171b; --line: #2a2a31; --glow: #ffb347; --text: #ece8e1; --dim: #8d8a85;
+	--c1: #ffb347; --c2: #6cc4ff; --c3: #9be08a;
+	color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--glass); color: var(--text); font: 400 1rem/1.55 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 64rem; margin: 0 auto; padding: 2rem clamp(1rem, 4vw, 3rem) 4rem; }
+.mark { font: 500 1.125rem/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .3em; color: var(--glow); text-decoration: none; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; margin: 2.2rem 0 .3rem; letter-spacing: -.01em; }
+.sub { color: var(--dim); margin: 0 0 2rem; max-width: 40rem; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; }
+.tile small { display: block; color: var(--dim); font-size: .8125rem; }
+.tile b { display: block; font-size: 2rem; font-weight: 600; font-variant-numeric: tabular-nums; margin-top: .2rem; }
+.tile i { display: inline-block; width: .6rem; height: .6rem; border-radius: 2px; margin-right: .4rem; vertical-align: .05rem; }
+.tile span { color: var(--dim); font-size: .8125rem; }
+h2 { font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 .8rem; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .9375rem; }
+th, td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { color: var(--dim); font-weight: 500; font-size: .8125rem; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: 0; }
+.note { color: var(--dim); font-size: .875rem; margin: .8rem 0 0; }
+svg text { fill: var(--dim); font: 400 11px Inter, system-ui, sans-serif; }
+.legend { display: flex; gap: 1.2rem; flex-wrap: wrap; color: var(--dim); font-size: .8125rem; margin: .2rem 0 .6rem; }
+.legend i { display: inline-block; width: .6rem; height: .6rem; border-radius: 2px; margin-right: .4rem; }
+#tip { position: fixed; pointer-events: none; background: #222228; border: 1px solid var(--line); border-radius: 8px; padding: .45rem .6rem; font-size: .8125rem; display: none; }
+.err { color: #ff8a7a; }
+</style>
+</head>
+<body>
+<div class="wrap">
+	<a class="mark" href="./">PHOSPHOR</a>
+	<h1>Downloads</h1>
+	<p class="sub">How many times each file has been downloaded, from the release the website links to. Counted by GitHub, so a download started from the website and one started anywhere else count the same.</p>
+
+	<div class="tiles" id="tiles"><div class="tile"><small>Loading…</small></div></div>
+
+	<h2>Downloads per day</h2>
+	<div class="panel">
+		<div class="legend" id="legend"></div>
+		<div id="chart"><p class="note">Loading…</p></div>
+		<p class="note">From a snapshot of the counts taken once a day. Days before the first snapshot aren't known.</p>
+	</div>
+
+	<h2>Every release</h2>
+	<div class="panel"><table id="rel"><thead><tr><th>Release</th><th>File</th><th class="n">Size</th><th class="n">Downloads</th></tr></thead><tbody></tbody></table></div>
+	<p class="note" id="asof"></p>
+</div>
+<div id="tip"></div>
+<script>
+const REPO = "f3bandit/phosphor_os";
+const KINDS = [
+	{ id: "image", name: "SD card image", test: n => /sdcard.*\.img/i.test(n), c: "var(--c1)" },
+	{ id: "update", name: "Update package", test: n => /armhf\.tar\.gz$/i.test(n), c: "var(--c2)" },
+	{ id: "windows", name: "Phosphor for Windows", test: n => /win.*\.zip$|\.exe$/i.test(n), c: "var(--c3)" },
+];
+const kindOf = n => KINDS.find(k => k.test(n));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmt = n => n.toLocaleString("en-US");
+const mb = b => (b / 1e6).toFixed(1) + " MB";
+
+async function live() {
+	const r = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=100`, { headers: { Accept: "application/vnd.github+json" } });
+	if (!r.ok) throw new Error(`GitHub said ${r.status}${r.status === 403 ? " (too many lookups from this network for now; try again in a while)" : ""}`);
+	return r.json();
+}
+
+function tiles(rels) {
+	const tot = { all: 0 }; KINDS.forEach(k => (tot[k.id] = 0));
+	const latest = rels[0];
+	rels.forEach(r => r.assets.forEach(a => { tot.all += a.download_count; const k = kindOf(a.name); if (k) tot[k.id] += a.download_count; }));
+	document.getElementById("tiles").innerHTML =
+		`<div class="tile"><small>All downloads</small><b>${fmt(tot.all)}</b><span>${rels.length} release${rels.length === 1 ? "" : "s"}</span></div>` +
+		KINDS.map(k => `<div class="tile"><small><i style="background:${k.c}"></i>${k.name}</small><b>${fmt(tot[k.id])}</b><span>${latest ? "latest: " + esc(latest.tag_name) : ""}</span></div>`).join("");
+}
+
+function table(rels) {
+	const tb = document.querySelector("#rel tbody");
+	tb.innerHTML = rels.flatMap(r => r.assets.map((a, i) => `<tr><td>${i ? "" : esc(r.tag_name) + (r.prerelease ? " <span class='mono' style='color:var(--dim)'>pre</span>" : "")}</td><td class="mono">${esc(a.name)}</td><td class="n">${mb(a.size)}</td><td class="n">${fmt(a.download_count)}</td></tr>`)).join("")
+		|| `<tr><td colspan="4">No releases yet</td></tr>`;
+}
+
+/* history: data/downloads.json is [{date:"YYYY-MM-DD", counts:{"<tag>/<file>": n}}], one entry a day */
+function chart(hist) {
+	const box = document.getElementById("chart");
+	document.getElementById("legend").innerHTML = KINDS.map(k => `<span><i style="background:${k.c}"></i>${k.name}</span>`).join("");
+	if (!hist || hist.length < 2) { box.innerHTML = `<p class="note">The first day's numbers show here after two daily snapshots.</p>`; return; }
+	const days = [];
+	for (let i = 1; i < hist.length; i++) {
+		const d = { date: hist[i].date }; KINDS.forEach(k => (d[k.id] = 0));
+		for (const [key, n] of Object.entries(hist[i].counts)) {
+			const k = kindOf(key); if (!k) continue;
+			d[k.id] += Math.max(0, n - (hist[i - 1].counts[key] || 0));
+		}
+		days.push(d);
+	}
+	const W = Math.max(560, days.length * 18), H = 220, L = 34, B = 26, T = 8;
+	const max = Math.max(1, ...days.map(d => KINDS.reduce((s, k) => s + d[k.id], 0)));
+	const step = niceStep(max), top = Math.ceil(max / step) * step;
+	const bw = (W - L - 8) / days.length, y = v => T + (H - T - B) * (1 - v / top);
+	let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Downloads per day">`;
+	for (let v = 0; v <= top; v += step) s += `<line x1="${L}" x2="${W - 4}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${v}</text>`;
+	days.forEach((d, i) => {
+		let base = 0; const x = L + i * bw + 1.5, w = Math.max(2, bw - 3);
+		KINDS.forEach(k => { if (!d[k.id]) return; s += `<rect x="${x}" y="${y(base + d[k.id])}" width="${w}" height="${y(base) - y(base + d[k.id]) - 1}" rx="2" fill="${k.c}"/>`; base += d[k.id]; });
+		s += `<rect x="${L + i * bw}" y="${T}" width="${bw}" height="${H - T - B}" fill="transparent" data-i="${i}"/>`;
+		if (i % Math.ceil(days.length / 8) === 0) s += `<text x="${x + w / 2}" y="${H - 8}" text-anchor="middle">${d.date.slice(5)}</text>`;
+	});
+	box.innerHTML = s + "</svg>";
+	const tip = document.getElementById("tip");
+	box.querySelectorAll("rect[data-i]").forEach(r => {
+		r.onmousemove = e => { const d = days[+r.dataset.i]; tip.innerHTML = `<b>${d.date}</b><br>` + KINDS.map(k => `${k.name}: ${d[k.id]}`).join("<br>"); tip.style.display = "block"; tip.style.left = Math.min(e.clientX + 12, innerWidth - 200) + "px"; tip.style.top = e.clientY + 12 + "px"; };
+		r.onmouseleave = () => (tip.style.display = "none");
+	});
+}
+function niceStep(m) { const r = m / 4, p = Math.pow(10, Math.floor(Math.log10(r))); return [1, 2, 5, 10].map(x => x * p).find(x => x >= r) || p; }
+
+(async () => {
+	try {
+		const rels = await live();
+		tiles(rels); table(rels);
+		document.getElementById("asof").textContent = "Live from GitHub, " + new Date().toLocaleString();
+	} catch (e) {
+		document.getElementById("tiles").innerHTML = `<div class="tile"><small class="err">Couldn't get the counts: ${esc(e.message)}</small></div>`;
+	}
+	try { const r = await fetch("data/downloads.json", { cache: "no-store" }); chart(r.ok ? await r.json() : null); }
+	catch { chart(null); }
+})();
+</script>
+</body>
+</html>
