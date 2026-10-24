@@ -63,6 +63,10 @@ header.top nav a:hover { color: var(--text); }
 }
 .hero p.lede { max-width: var(--measure); color: var(--dim); font-size: 1.1875rem; margin: 0; }
 .hero p.lede strong { color: var(--text); font-weight: 500; }
+.hero .cta { display: flex; align-items: center; gap: 1rem 1.25rem; flex-wrap: wrap; margin: 1.75rem 0 0; }
+.hero .cta .go { display: inline-block; padding: 0.75rem 1.2rem; border-radius: 9px; background: var(--glow); color: #141414; font-weight: 600; text-decoration: none; }
+.hero .cta .go:hover { filter: brightness(1.08); }
+.hero .cta span { color: var(--dim); font: 400 0.875rem/1.4 "IBM Plex Mono", ui-monospace, monospace; }
 
 .tv {
 	position: relative;
@@ -196,6 +200,7 @@ footer p { margin: 0; max-width: 40rem; }
 	<div class="wrap hero">
 		<h1>Your MiSTer, as a console.</h1>
 		<p class="lede">Phosphor is unofficial custom firmware for the <strong>SuperStation One</strong>, built on <strong>mainline MiSTer and its Linux</strong>. Pick up a controller and your games are there with box art, ready to play. Memory cards, Bluetooth, WiFi and saves are a few button presses away, on the TV or on your phone.</p>
+		<p class="cta"><a class="go" href="#download">Download the beta</a><span>0.27.24 · SD card image, update and Windows app</span></p>
 		<div class="tv">
 			<div class="screen"><img src="img/tv-home.png" width="1280" height="720" alt="Phosphor's home screen: the library by kind of system (Disc, Cartridge, Handheld, Arcade) and the last game played"></div>
 		</div>
