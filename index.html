@@ -17,9 +17,12 @@
 </script>
 <meta name="theme-color" content="#0e0e10">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/inter-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/inter-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/inter-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "Phos Mono"; font-weight: 400 600; font-style: normal; font-display: swap; src: url("fonts/dejavu-sans-mono.woff2") format("woff2"); }
+</style>
 <style>
 :root {
 	--glass: #0e0e10;      /* the screen when nothing is lit */
@@ -48,7 +51,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--glow); outline-
 
 /* the wordmark, set like the shell's: mono, spaced, amber */
 .mark {
-	font: 500 1.125rem/1 "IBM Plex Mono", ui-monospace, monospace;
+	font: 500 1.125rem/1 "Phos Mono", ui-monospace, monospace;
 	letter-spacing: 0.32em;
 	color: var(--glow);
 	text-decoration: none;
@@ -73,7 +76,7 @@ header.top nav a:hover { color: var(--text); }
 .hero .cta { display: flex; align-items: center; gap: 1rem 1.25rem; flex-wrap: wrap; margin: 1.75rem 0 0; }
 .hero .cta .go { display: inline-block; padding: 0.75rem 1.2rem; border-radius: 9px; background: var(--glow); color: #141414; font-weight: 600; text-decoration: none; }
 .hero .cta .go:hover { filter: brightness(1.08); }
-.hero .cta span { color: var(--dim); font: 400 0.875rem/1.4 "IBM Plex Mono", ui-monospace, monospace; }
+.hero .cta span { color: var(--dim); font: 400 0.875rem/1.4 "Phos Mono", ui-monospace, monospace; }
 
 .tv {
 	position: relative;
@@ -153,31 +156,38 @@ section > .wrap > p.intro { color: var(--dim); max-width: var(--measure); margin
 
 .status { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: end; }
 .status p { color: var(--dim); max-width: var(--measure); margin: 0; }
-.status .now { font: 500 0.9375rem/1.4 "IBM Plex Mono", ui-monospace, monospace; color: var(--glow); white-space: nowrap; }
+.status .now { font: 500 0.9375rem/1.4 "Phos Mono", ui-monospace, monospace; color: var(--glow); white-space: nowrap; }
 .status .now::before {
 	content: ""; display: inline-block; width: 0.55em; height: 0.55em; border-radius: 50%; margin-right: 0.6em;
 	background: var(--glow); box-shadow: 0 0 10px var(--glow); vertical-align: 0.05em;
 }
 
+.credits { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3.5rem); }
+.credits h3 { font-weight: 600; font-size: 1.0625rem; margin: 0 0 0.6rem; }
+.credits h3 + ul { margin-top: 0; }
+.credits ul { list-style: none; margin: 0 0 1.4rem; padding: 0; }
+.credits li { color: var(--dim); font-size: 0.9375rem; margin: 0 0 0.55rem; }
+.credits .fine { color: var(--dim); font-size: 0.8125rem; margin: -0.8rem 0 1.4rem; }
+section > .wrap > p.intro a, .credits a, footer a { color: var(--text); text-decoration-color: var(--line); text-underline-offset: 3px; }
 footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3.5rem; color: var(--dim); font-size: 0.875rem; }
 footer .wrap { display: flex; justify-content: space-between; gap: 1.5rem 3rem; flex-wrap: wrap; }
 footer p { margin: 0; max-width: 40rem; }
 
 /* ---- download ---- */
-.beta { display: inline-block; font: 500 0.8125rem/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.14em; color: #141414; background: var(--glow); border-radius: 4px; padding: 0.35em 0.6em; vertical-align: 0.35em; margin-left: 0.6rem; }
+.beta { display: inline-block; font: 500 0.8125rem/1 "Phos Mono", ui-monospace, monospace; letter-spacing: 0.14em; color: #141414; background: var(--glow); border-radius: 4px; padding: 0.35em 0.6em; vertical-align: 0.35em; margin-left: 0.6rem; }
 .dl-warn { border-left: 3px solid var(--glow); background: var(--panel); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; color: var(--dim); max-width: 46rem; margin: 0 0 2rem; }
 .dl-warn b { color: var(--text); font-weight: 600; }
 .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.25rem; }
 .dl { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.4rem 1.4rem 1.25rem; display: flex; flex-direction: column; }
 .dl h3 { font-weight: 600; font-size: 1.1875rem; margin: 0 0 0.35rem; }
-.dl .meta { font: 400 0.8125rem/1.4 "IBM Plex Mono", ui-monospace, monospace; color: var(--dim); margin: 0 0 0.8rem; overflow-wrap: anywhere; }
+.dl .meta { font: 400 0.8125rem/1.4 "Phos Mono", ui-monospace, monospace; color: var(--dim); margin: 0 0 0.8rem; overflow-wrap: anywhere; }
 .dl p { color: var(--dim); margin: 0 0 1rem; font-size: 0.96875rem; }
 .dl ol { color: var(--dim); margin: 0 0 1.1rem; padding-left: 1.2rem; font-size: 0.9375rem; }
 .dl ol li { margin-bottom: 0.3rem; }
-.dl code, .dl-warn code { font: 400 0.875em "IBM Plex Mono", ui-monospace, monospace; color: var(--text); }
+.dl code, .dl-warn code { font: 400 0.875em "Phos Mono", ui-monospace, monospace; color: var(--text); }
 .dl .btn { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.1rem; border-radius: 9px; background: var(--glow); color: #141414; font-weight: 600; text-decoration: none; }
 .dl .btn:hover { filter: brightness(1.08); }
-.dl .sum { margin: 0.7rem 0 0; font: 400 0.6875rem/1.4 "IBM Plex Mono", ui-monospace, monospace; color: #6a6762; overflow-wrap: anywhere; }
+.dl .sum { margin: 0.7rem 0 0; font: 400 0.6875rem/1.4 "Phos Mono", ui-monospace, monospace; color: #6a6762; overflow-wrap: anywhere; }
 
 @media (max-width: 760px) {
 	.feature, .feature.flip { grid-template-columns: 1fr; }
@@ -320,6 +330,20 @@ footer p { margin: 0; max-width: 40rem; }
 		</div>
 	</section>
 
+	<section id="community">
+		<div class="wrap">
+			<h2>Made with MiSTer, never against it</h2>
+			<p class="intro">Phosphor is built to work with the MiSTer community, its hardware and its software. It runs on MiSTer-devel's own Linux and Main, leaves cores, Update All and the community's tools working the way they always have, and keeps MiSTer's own menu one button away. It stands on years of other people's work, listed in the <a href="#credits">credits</a>.</p>
+			<div class="promises">
+				<div><h3>No tracking, no ads, nothing hidden</h3><p>Phosphor, Phosphor for Windows and every Phosphor app are free of analytics, ads, spyware and malware. Nothing in them watches what you do.</p></div>
+				<div><h3>Nothing collected or shared</h3><p>There are no Phosphor servers collecting anything. Nothing about you, your games or your system is stored by us, sent to us or shared with anyone.</p></div>
+				<div><h3>Your hardware, your data</h3><p>It's your SuperStation and your files, and you're in control of them at all times. You decide what Phosphor does and where anything goes, and you can change your mind whenever you like.</p></div>
+				<div><h3>Nothing happens unless you choose it</h3><p>Phosphor only goes online when you ask it to, or set it up to: the box art sources you pick, your own storage for cloud saves, and MiSTer's update servers when you run an update.</p></div>
+				<div><h3>This website too</h3><p>No trackers, cookies or analytics, and the fonts are served from here. The download numbers are GitHub's anonymous totals for each file.</p></div>
+			</div>
+		</div>
+	</section>
+
 	<section>
 		<div class="wrap">
 			<h2>How it treats your system</h2>
@@ -377,13 +401,56 @@ footer p { margin: 0; max-width: 40rem; }
 				</div>
 			</div>
 		</div>
+	<section id="credits">
+		<div class="wrap">
+			<h2>Credits</h2>
+			<p class="intro">Phosphor builds on the work of these people and projects. Thank you.</p>
+			<div class="credits">
+				<div>
+					<h3>MiSTer and its community</h3>
+					<ul>
+						<li><a href="https://github.com/MiSTer-devel">MiSTer FPGA</a>: Alexey Melnikov (Sorgelig) and the MiSTer-devel contributors. MiSTer Main is based on MiST by Till Harbaum, Minimig by Dennis van Weeren and other projects. GPL-3.0.</li>
+						<li><a href="https://github.com/MiSTer-devel/Main_MiSTer">MiSTer Main</a> and <a href="https://github.com/MiSTer-devel/Menu_MiSTer">the menu core</a>: Phosphor's Main and menu core are forks of them. GPL-3.0.</li>
+						<li>MiSTer's Linux and kernel, <a href="https://github.com/MiSTer-devel/mr-fusion">Mr. Fusion</a>, <a href="https://github.com/MiSTer-devel/SD-Installer-Win64_MiSTer">the MiSTer release</a>, <a href="https://github.com/MiSTer-devel/Filters_MiSTer">Filters</a>, <a href="https://github.com/MiSTer-devel/ShadowMasks_MiSTer">Shadow Masks</a> and <a href="https://github.com/MiSTer-devel/Presets_MiSTer">Presets</a>: MiSTer-devel, used as they are in the SD card image.</li>
+						<li><a href="https://github.com/theypsilon/Update_All_MiSTer">Update All</a> and <a href="https://github.com/MiSTer-devel/Downloader_MiSTer">Downloader</a>: theypsilon. GPL-3.0.</li>
+						<li><a href="https://github.com/mdqinc/SDL_GameControllerDB">SDL_GameControllerDB</a>: the controller list MiSTer uses, read by Phosphor. zlib licence.</li>
+					</ul>
+				</div>
+				<div>
+					<h3>Libraries</h3>
+					<ul>
+						<li><a href="https://lvgl.io">LVGL</a>: LVGL Kft and contributors. MIT.</li>
+						<li><a href="https://www.sqlite.org">SQLite</a>: public domain.</li>
+						<li><a href="https://github.com/DaveGamble/cJSON">cJSON</a>: Dave Gamble and contributors. MIT.</li>
+						<li><a href="https://github.com/rtissera/libchdr">libchdr</a>: Romain Tisserand and contributors. BSD-3-Clause. With <a href="https://www.7-zip.org/sdk.html">LZMA SDK</a> (Igor Pavlov, public domain), <a href="https://github.com/richgel999/miniz">miniz</a> (MIT) and <a href="https://github.com/facebook/zstd">Zstandard</a> (BSD).</li>
+						<li><a href="https://github.com/nothings/stb">stb_image</a>: Sean Barrett. Public domain or MIT.</li>
+						<li><a href="https://go.dev">Go</a> and its golang.org/x packages: The Go Authors. BSD-3-Clause.</li>
+						<li><a href="https://github.com/bugst/go-serial">go.bug.st/serial</a>: Cristian Maglie. BSD-3-Clause.</li>
+					</ul>
+				</div>
+				<div>
+					<h3>Fonts</h3>
+					<ul>
+						<li><a href="https://rsms.me/inter/">Inter</a>: Rasmus Andersson and the Inter Project Authors. SIL Open Font License 1.1.</li>
+						<li><a href="https://dejavu-fonts.github.io">DejaVu Sans Mono</a>: the DejaVu fonts team, based on Bitstream Vera. Bitstream Vera licence.</li>
+					</ul>
+					<p class="fine">Both are used on the TV, in the apps and on this site. <a href="fonts/LICENSES.txt">Font licences</a>.</p>
+					<h3>Game details and box art</h3>
+					<ul>
+						<li><a href="https://github.com/libretro/libretro-database">libretro database</a> and <a href="https://thumbnails.libretro.com">libretro thumbnails</a></li>
+						<li><a href="https://www.screenscraper.fr">ScreenScraper</a>, <a href="https://thegamesdb.net">TheGamesDB</a>, <a href="https://gamesdb.launchbox-app.com">LaunchBox Games Database</a> and <a href="https://adb.arcadeitalia.net">ArcadeDB</a></li>
+					</ul>
+					<p class="fine">Looked up only when you ask, from the sources you turn on.</p>
+				</div>
+			</div>
+		</div>
 	</section>
 </main>
 
 <footer>
 	<div class="wrap">
 		<p>Phosphor is made by f3bandit. It runs on <a href="https://github.com/MiSTer-devel">MiSTer</a>, the open FPGA project by MiSTer-devel and its community, and is unofficial: not made or supported by MiSTer-devel or by the makers of the SuperStation One.</p>
-		<p>Free for personal, non-commercial use.</p>
+		<p>Free for personal, non-commercial use. <a href="#community">Privacy</a> · <a href="#credits">Credits</a></p>
 	</div>
 </footer>
 
