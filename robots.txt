@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /stats.html
+Disallow: /data/
+
+Sitemap: https://phosphor-os.github.io/sitemap.xml
