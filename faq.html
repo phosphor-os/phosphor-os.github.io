@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phosphor OS FAQ</title>
+<meta name="description" content="Answers about Phosphor OS on the SuperStation One: how it works, pairing Phosphor for Windows, box art, backups, updates, video settings and DIP switches, and common SuperStation problems.">
+<link rel="canonical" href="https://phosphor-os.github.io/faq.html">
+<meta name="theme-color" content="#0e0e10">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<style>
+@font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/inter-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/inter-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/inter-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "Phos Mono"; font-weight: 400 600; font-style: normal; font-display: swap; src: url("fonts/dejavu-sans-mono.woff2") format("woff2"); }
+</style>
+<style>
+:root { --glass: #0e0e10; --panel: #17171b; --line: #2a2a31; --glow: #ffb347; --text: #ece8e1; --dim: #8d8a85; color-scheme: dark; }
+* { box-sizing: border-box; }
+html { background: var(--glass); }
+body { margin: 0; background: var(--glass); color: var(--text); font: 400 1.0625rem/1.6 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--glow); text-underline-offset: .2em; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--glow); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 52rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-top: 1.75rem; }
+header.top nav { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: .9375rem; }
+.mark { font: 500 1.125rem/1 "Phos Mono", ui-monospace, monospace; letter-spacing: .32em; color: var(--glow); text-decoration: none; }
+h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 600; letter-spacing: -.01em; margin: 3rem 0 .4rem; }
+.lede { color: var(--dim); margin: 0 0 1.2rem; max-width: 40rem; }
+.jump { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; font-size: .9375rem; margin: 0 0 1rem; }
+h2 { font-size: 1.3rem; font-weight: 600; margin: 3rem 0 1rem; scroll-margin-top: 1rem; }
+details { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; margin: .6rem 0; padding: 0 1.1rem; }
+summary { cursor: pointer; font-weight: 500; padding: .9rem 0; }
+details[open] summary { border-bottom: 1px solid var(--line); margin-bottom: .8rem; }
+details p, details ul { margin: 0 0 .9rem; }
+details ul { padding-left: 1.2rem; }
+code { font: .875em "Phos Mono", ui-monospace, monospace; background: #222228; border: 1px solid var(--line); border-radius: 4px; padding: .05em .35em; overflow-wrap: anywhere; }
+.dim { color: var(--dim); font-size: .9375rem; }
+.tw { overflow-x: auto; margin: 0 0 .9rem; }
+table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: .9375rem; }
+td:first-child { min-width: 12rem; }
+td code { white-space: nowrap; }
+th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--dim); font-weight: 500; font-size: .8125rem; }
+tr:last-child td { border-bottom: 0; }
+footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 3rem; color: var(--dim); font-size: .9375rem; }
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+	<a class="mark" href="./">PHOSPHOR</a>
+	<nav aria-label="Sections">
+		<a href="./#tour">What it does</a>
+		<a href="./#download">Download</a>
+		<a href="faq.html" aria-current="page">FAQ</a>
+	</nav>
+</header>
+
+<main class="wrap">
+	<h1>FAQ</h1>
+	<p class="lede">How Phosphor works and why, pairing Phosphor for Windows, video and the DIP switches, and fixes for common SuperStation One problems.</p>
+	<p class="jump"><a href="#how">How Phosphor works</a><a href="#pc">Phosphor for Windows</a><a href="#video">Video and DIP switches</a><a href="#ss1">SuperStation problems</a><a href="#help">Getting help</a></p>
+
+	<h2 id="how">How Phosphor works</h2>
+	<details><summary>What is Phosphor?</summary>
+		<p>Unofficial custom firmware for the SuperStation One, built on mainline MiSTer and its Linux. It has three parts:</p>
+		<ul>
+			<li><b>Phosphor</b>, the menu you see on the TV;</li>
+			<li><b>phosphord</b>, a small background service that keeps your library, box art, saves, backups and settings;</li>
+			<li><b>Phosphor for Windows</b>, which talks to phosphord over your home network.</li>
+		</ul>
+		<p>Cores, Update All and MiSTer's own menu keep working the way they always have.</p>
+	</details>
+	<details><summary>Does Phosphor scan my games or download things by itself?</summary>
+		<p>No. Looking for games, fetching box art and installing updates only happen when you choose them. Phosphor only goes online for the box art sources you pick, your own storage for cloud saves, and MiSTer's update servers when you run an update.</p>
+	</details>
+	<details><summary>Where does the box art come from?</summary>
+		<p>Six sources. libretro, ArcadeDB and LaunchBox need no account. ScreenScraper needs your free screenscraper.fr login, TheGamesDB a free API key, and IGDB a free Twitch developer app. You choose which ones are used.</p>
+	</details>
+	<details><summary>Why look up box art on the PC instead of the SuperStation?</summary>
+		<p>It's much faster. The PC fetches the pictures and makes the box art, then sends it to the SuperStation.</p>
+	</details>
+	<details><summary>What are "Based on" links?</summary>
+		<p>They tie a hack, translation or fan version to the game it's based on, so it can use that game's box art and details.</p>
+	</details>
+	<details><summary>How do I shut down or restart safely?</summary>
+		<p>Press <b>Select + Start</b> together anywhere in Phosphor, then choose <b>Shut down safely</b> or <b>Restart</b>. Shutting down this way marks the drives clean, so Windows won't ask to scan the card.</p>
+	</details>
+	<details><summary>What happens if the power goes?</summary>
+		<p>Phosphor notes what was going on (writing saves, a backup, an update) and checks or puts things back at the next start. The Power section of Diagnostics lists these events, with tips on what helps.</p>
+	</details>
+	<details><summary>How do updates work, and can I go back?</summary>
+		<p>Copy the update to <code>phosphor/updates</code> on the SD card (or send it from Phosphor for Windows), pick it on the TV and press Install. Phosphor keeps a copy of the version you had, so going back is one press. Your library, box art, saves and settings stay as they are.</p>
+	</details>
+	<details><summary>Where did the screen filters go?</summary>
+		<p>They're gone. The Video section now lets you try MiSTer's video settings (see <a href="#video">Video</a>).</p>
+	</details>
+
+	<h2 id="pc">Phosphor for Windows</h2>
+	<details><summary>How do I pair it with my SuperStation?</summary>
+		<p>On the TV, open <b>Settings › Remote access</b>, turn it on and choose <b>Pair a device</b>. The TV shows the address and a 6-digit code to type into Phosphor for Windows. If the router later gives the SuperStation a new address, the app finds it again on your network.</p>
+	</details>
+	<details><summary>Why can't the app change WiFi, pairing or Bluetooth?</summary>
+		<p>On purpose. A paired device could otherwise lock you out of your own SuperStation, so those can only be changed on the TV.</p>
+	</details>
+	<details><summary>Why does the app's colour change?</summary>
+		<p>It follows the accent and texture you picked on the SuperStation, so there's nothing to set twice.</p>
+	</details>
+	<details><summary>What are "MiSTer &amp; Linux backups"?</summary>
+		<p>Phosphor for Windows keeps every version of the SuperStation's important files on your PC:</p>
+		<ul>
+			<li><b>Settings:</b> <code>MiSTer.ini</code> and its profiles, <code>downloader.ini</code>, Phosphor's settings, the network address, the name and the SSH settings;</li>
+			<li><b>System files:</b> MiSTer itself, the menu core and Linux.</li>
+		</ul>
+		<p>It checks every half hour while the SuperStation is on, and only copies what changed. They're in <b>Settings › Power &amp; updates › MiSTer &amp; Linux backups</b>.</p>
+	</details>
+	<details><summary>A note says a file "looks reset by an update"</summary>
+		<p>That settings file changed at the same time MiSTer Linux did, which usually means the update put it back to stock. The version from before is kept: put it back from MiSTer &amp; Linux backups.</p>
+	</details>
+	<details><summary>Are my WiFi password, SSH keys and logins backed up?</summary>
+		<p>No, never. They stay on the SuperStation.</p>
+	</details>
+	<details><summary>What happens when I put a file back?</summary>
+		<p>The SuperStation checks that the file arrived whole, and keeps a copy of the one it replaces first. If it was a system file, the app tells you to restart.</p>
+	</details>
+
+	<h2 id="video">Video and DIP switches</h2>
+	<details><summary>How does trying a video setting work?</summary>
+		<p>In <b>Settings › Video</b> on the TV, or the Video section of Phosphor for Windows, pick a setting and try it. It stays for 35 seconds: press <b>Keep</b> to keep it, or do nothing and the old one comes back by itself. If you get no picture, just wait. If the power goes during a try, the old setting comes back at the next start.</p>
+		<p><code>MiSTer.ini</code> is backed up before every try, and <b>Earlier settings</b> brings an older version back. Modes that need a DIP switch changed say which one.</p>
+	</details>
+	<details><summary>Why 35 seconds?</summary>
+		<p>Many TVs take several seconds to lock on to a new signal, which left too little time to reach Keep.</p>
+	</details>
+	<details><summary>Why does the SuperStation have its own ini files? Did Taki change the video pinout?</summary>
+		<p>No pinout change. The SuperStation One has a Sony CXA video encoder and four DIP switches for its analog output. Taki Udon's <code>MiSTer.ini</code> differs from stock MiSTer only in <code>vga_mode=subcarrier</code> and <code>video_info=2</code>; his other ini files (RGHV, RGsB, SVID, YPbP) are profiles for the other kinds of output.</p>
+	</details>
+	<details open><summary>Which DIP switches go with which video mode?</summary>
+		<p class="dim">For units made after December 2025. Region: Down = NTSC, Up = PAL. "–" means that switch doesn't matter for the mode.</p>
+		<div class="tw"><table>
+			<thead><tr><th>Video mode</th><th>DIP 1</th><th>DIP 2</th><th>DIP 3</th><th>DIP 4</th></tr></thead>
+			<tbody>
+				<tr><td>S-Video / composite, Sony encoder (<code>subcarrier</code>)</td><td>Region</td><td>Region</td><td>Down</td><td>Up</td></tr>
+				<tr><td>S-Video / composite, FPGA (<code>svideo</code>, <code>cvbs</code>)</td><td>Region</td><td>Region</td><td>Up</td><td>Up</td></tr>
+				<tr><td>Component (YPbPr)</td><td>–</td><td>–</td><td>–</td><td>Down</td></tr>
+				<tr><td>RGB with separate sync (RGHV)</td><td>–</td><td>–</td><td>–</td><td>Up</td></tr>
+				<tr><td>RGB, sync on green (RGsB)</td><td>–</td><td>–</td><td>–</td><td>Down</td></tr>
+				<tr><td>Other RGB</td><td>–</td><td>–</td><td>–</td><td>Up for SCART, Down for sync on green</td></tr>
+			</tbody>
+		</table></div>
+		<p>What each switch does: 1 is the S-Video/composite region, 2 the FPGA luma trap, 3 picks the FPGA or the Sony encoder for S-Video/composite, and 4 is sync on green.</p>
+	</details>
+	<details><summary>My S-Video or composite picture is black and white</summary>
+		<p>Either <code>vga_mode=subcarrier</code> is set and the core has no subcarrier support, or the core is missing from <code>yc.txt</code>. Flip DIP 3 up and use the SVID profile.</p>
+	</details>
+	<details><summary>How do I set up a PAL CRT?</summary>
+		<p>Set <code>menu_pal=1</code>, flip DIP 1 up, and set each core to PAL in its OSD menu.</p>
+	</details>
+
+	<h2 id="ss1">SuperStation problems</h2>
+	<details><summary>My SD card got wrecked after running a "fix overlap" tool</summary>
+		<p>Some SuperStation cards came with <code>fix_sd_overlap.sh</code> / <code>exfat_fix_overlap</code>. It misreads the correct partition layout as overlapping, and running it can destroy the card (<a href="https://github.com/Takiiiiiiii/SuperStation-Documentation/issues/14">SuperStation-Documentation #14</a>). Delete it. If a card is already damaged, reflash it.</p>
+	</details>
+	<details><summary>CRT output, WiFi or the ARM cores stopped working after a Linux update</summary>
+		<p>The September 7, 2026 MiSTer Linux update (kernel 5.15 to 6.18) broke CRT modes, WiFi and the ARM cores (3S-ARM, Duke3D, Quake) on the SuperStation. It has since been fixed upstream: run the update again. If a Linux update reset one of your settings files, put it back from <a href="#pc">MiSTer &amp; Linux backups</a>.</p>
+	</details>
+	<details><summary>Update All crashes when I use the "Link" (chip-id) option</summary>
+		<p>That option crashes on the SuperStation. Leave it off.</p>
+	</details>
+	<details><summary>My SuperStation reboots by itself, or has file system errors, with an NVMe drive</summary>
+		<p>Gen 4 NVMe drives cause this. Use a Gen 3 drive.</p>
+	</details>
+	<details><summary>Which power adapter should I use?</summary>
+		<p>A single-port USB-C PD adapter that gives 9 V at 3 A. The Steam Deck adapter works. Don't share a multi-port charger with other devices, and don't use a Nintendo Switch 1 adapter.</p>
+	</details>
+	<details><summary>I get no picture over HDMI from the dock</summary>
+		<p>Plug the HDMI cable into the SuperStation itself. The HDMI-shaped port on the dock is an expansion port, not video out.</p>
+	</details>
+	<details><summary>A core says "Unsafe Options" (PlayStation) or "Game Disc Is Unsuitable" (Saturn)</summary>
+		<p>Reset that core's settings to their defaults in its OSD menu.</p>
+	</details>
+	<details><summary>Update All warns about deprecated ini settings</summary>
+		<p>Replace your ini files with the updated ones in Taki Udon's <a href="https://github.com/Takiiiiiiii/SuperStation-Documentation/tree/main/INI_Files">SuperStation-Documentation INI_Files</a>.</p>
+	</details>
+
+	<h2 id="help">Getting help</h2>
+	<details open><summary>Where do I report a problem?</summary>
+		<p>Problems with Phosphor or Phosphor for Windows: <a href="https://github.com/f3bandit/phosphor_os/issues">GitHub issues</a>, with what you did and which version you're on. Problems with the SuperStation itself (hardware, a core, a game) go to the Taki Udon Discord.</p>
+	</details>
+</main>
+
+<footer>
+	<div class="wrap">
+		<p>Phosphor is made by f3bandit. It runs on <a href="https://github.com/MiSTer-devel">MiSTer</a>, the open FPGA project by MiSTer-devel and its community, and is unofficial: not made or supported by MiSTer-devel or by the makers of the SuperStation One.</p>
+		<p>Free for personal, non-commercial use. <a href="./#community">Privacy</a> · <a href="./#credits">Credits</a></p>
+	</div>
+</footer>
+
+</body>
+</html>
