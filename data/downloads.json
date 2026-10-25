@@ -6,5 +6,13 @@
       "0.27.24-beta/phosphor-0.27.24-armhf.tar.gz": 3,
       "0.27.24-beta/phosphor-0.27.24-sdcard-20260912.img.zip": 3
     }
+  },
+  {
+    "date": "2026-10-25",
+    "counts": {
+      "0.27.24-beta/Phosphor_win_0.2.16.zip": 2,
+      "0.27.24-beta/phosphor-0.27.24-armhf.tar.gz": 3,
+      "0.27.24-beta/phosphor-0.27.24-sdcard-20260912.img.zip": 3
+    }
   }
 ]
