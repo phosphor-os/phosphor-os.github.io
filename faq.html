@@ -134,7 +134,26 @@ footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 
 		<p>Many TVs take several seconds to lock on to a new signal, which left too little time to reach Keep.</p>
 	</details>
 	<details><summary>Why does the SuperStation have its own ini files? Did Taki change the video pinout?</summary>
-		<p>No pinout change. The SuperStation One has a Sony CXA video encoder and four DIP switches for its analog output. Taki Udon's <code>MiSTer.ini</code> differs from stock MiSTer only in <code>vga_mode=subcarrier</code> and <code>video_info=2</code>; his other ini files (RGHV, RGsB, SVID, YPbP) are profiles for the other kinds of output.</p>
+		<p>No pinout change. The SuperStation One has its own analog video hardware: a Sony CXA video encoder for S-Video and composite, and four DIP switches. The Sony encoder needs <code>vga_mode=subcarrier</code> in <code>MiSTer.ini</code>; with MiSTer's own default (<code>rgb</code>) there's no colour over S-Video or composite. So Taki Udon ships <code>MiSTer.ini</code> plus four profiles for the other kinds of output:</p>
+		<div class="tw"><table>
+			<thead><tr><th>File</th><th>vga_mode</th><th>composite_sync</th><th>vga_sog</th><th>For</th></tr></thead>
+			<tbody>
+				<tr><td><code>MiSTer.ini</code></td><td>subcarrier</td><td>1</td><td>0</td><td>HDMI, plus S-Video/composite through the Sony encoder</td></tr>
+				<tr><td><code>MiSTer_RGHV.ini</code></td><td>rgb</td><td>0</td><td>0</td><td>RGB with separate sync (VGA monitors)</td></tr>
+				<tr><td><code>MiSTer_RGsB.ini</code></td><td>rgb</td><td>1</td><td>0</td><td>RGB with composite sync (SCART); DIP 4 down adds sync on green</td></tr>
+				<tr><td><code>MiSTer_SVID.ini</code></td><td>svideo</td><td>1</td><td>1</td><td>The FPGA's own S-Video/composite (DIP 3 up)</td></tr>
+				<tr><td><code>MiSTer_YPbP.ini</code></td><td>ypbpr</td><td>1</td><td>0</td><td>Component</td></tr>
+			</tbody>
+		</table></div>
+		<p>All five also set <code>video_info=2</code> and <code>logo=0</code>.</p>
+	</details>
+	<details><summary>Phosphor changed my video ini files. What did it do?</summary>
+		<p>Once per SD card, when Phosphor is installed or updated (and on the SD card image), it sets the video lines above to Taki's settings, so the SuperStation's video hardware works the way it was made to. Only those lines (<code>vga_mode</code>, <code>composite_sync</code>, <code>vga_sog</code>, <code>video_info</code>, <code>logo</code>) are changed. Everything else in each file stays as it was, including your HDMI settings and per-core sections. A missing profile is added, and <code>MiSTer_example.ini</code> is renamed <code>MiSTer_example.ini.txt</code> (see the next question).</p>
+		<p>Copies of the files as they were are in <code>phosphor/backup/video-ini-&lt;date&gt;</code>, and <code>phosphor/backup/video-ini-taki.done</code> lists what changed. It won't happen again on that card, so you can change any of these settings back and they'll stay.</p>
+	</details>
+	<details><summary>Why does Phosphor offer four video profiles when MiSTer offers three?</summary>
+		<p>MiSTer's menu offers <code>MiSTer.ini</code> plus only the first three <code>MiSTer_*.ini</code> files it finds on the card. The SuperStation ships four profiles, so one was always hidden. <code>MiSTer_example.ini</code> (MiSTer's reference copy) counted as one too, which could hide two. Which ones were hidden depended on the order the card happened to list them.</p>
+		<p>Phosphor renames the example file and its version of MiSTer's Main offers all four profiles. Pick one in <b>Settings › Video</b> on the TV, or the Video section of Phosphor for Windows or Android. MiSTer's own OSD picker still shows three. SS1 Tool on a Console Mode SuperStation keeps three, as Taki has it.</p>
 	</details>
 	<details open><summary>Which DIP switches go with which video mode?</summary>
 		<p class="dim">For units made after December 2025. Region: Down = NTSC, Up = PAL. "–" means that switch doesn't matter for the mode.</p>
