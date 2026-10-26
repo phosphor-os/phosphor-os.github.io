@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://phosphor-os.github.io/img/tv-home.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Phosphor OS","alternateName":"Phosphor","applicationCategory":"GameApplication","operatingSystem":"MiSTer (SuperStation One)","softwareVersion":"0.27.37 beta","description":"Unofficial custom firmware for the SuperStation One, built on mainline MiSTer and its Linux: a console-style home screen with your games, box art, controllers, memory cards, WiFi and Bluetooth.","url":"https://phosphor-os.github.io/","image":"https://phosphor-os.github.io/img/tv-home.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"f3bandit"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Phosphor OS","alternateName":"Phosphor","applicationCategory":"GameApplication","operatingSystem":"MiSTer (SuperStation One)","softwareVersion":"0.27.38 beta","description":"Unofficial custom firmware for the SuperStation One, built on mainline MiSTer and its Linux: a console-style home screen with your games, box art, controllers, memory cards, WiFi and Bluetooth.","url":"https://phosphor-os.github.io/","image":"https://phosphor-os.github.io/img/tv-home.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"f3bandit"}}
 </script>
 <meta name="theme-color" content="#0e0e10">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -216,7 +216,7 @@ footer p { margin: 0; max-width: 40rem; }
 	<div class="wrap hero">
 		<h1>Your MiSTer, as a console.</h1>
 		<p class="lede">Phosphor is unofficial custom firmware for the <strong>SuperStation One</strong>, built on <strong>mainline MiSTer and its Linux</strong>. Pick up a controller and your games are there with box art, ready to play. Memory cards, Bluetooth, WiFi and saves are a few button presses away, on the TV or from your PC.</p>
-		<p class="cta"><a class="go" href="#download">Download the beta</a><span>0.27.37 · SD card image, update and Windows app</span></p>
+		<p class="cta"><a class="go" href="#download">Download the beta</a><span>0.27.38 · SD card image, update and Windows app</span></p>
 		<div class="tv">
 			<div class="screen"><img src="img/tv-home.png" width="1280" height="720" alt="Phosphor's home screen: the library by kind of system (Disc, Cartridge, Handheld, Arcade, Computer) and the last game played"></div>
 		</div>
@@ -364,42 +364,42 @@ footer p { margin: 0; max-width: 40rem; }
 	<section id="download">
 		<div class="wrap">
 			<h2>Download <span class="beta">BETA</span></h2>
-			<p class="intro">Phosphor 0.27.37 for the SuperStation One. It's a beta: tested on one SuperStation One, still changing quickly, and some things will break. Phosphor is a working name.</p>
+			<p class="intro">Phosphor 0.27.38 for the SuperStation One. It's a beta: tested on one SuperStation One, still changing quickly, and some things will break. Phosphor is a working name.</p>
 			<div class="dl-warn"><b>Back up your SD card before you try it.</b> The SD card image replaces everything on the card it's written to. Phosphor keeps MiSTer as it is underneath: MiSTer's own menu is one button away, and <code>phosphor/uninstall.sh</code> takes Phosphor off again.</div>
 			<div class="downloads">
 				<div class="dl">
 					<h3>SD card image</h3>
-					<p class="meta">phosphor-0.27.37-sdcard-20260912.img.zip · 145 MB</p>
+					<p class="meta">phosphor-0.27.38-sdcard-20260912.img.zip · 146 MB</p>
 					<p>A new card with MiSTer and Phosphor on it. No WiFi or other settings of anyone's on it.</p>
 					<ol>
 						<li>Write it to a microSD card with balenaEtcher, Raspberry Pi Imager or Rufus. Everything on the card is erased.</li>
 						<li>Optional: put a <code>wpa_supplicant.conf</code> on the card's MRFUSION drive for WiFi straight away, or set WiFi up on the TV later.</li>
 						<li>Put it in the SuperStation One and switch on. The first start sets the card up (a few minutes), then Phosphor starts.</li>
 					</ol>
-					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.37-beta/phosphor-0.27.37-sdcard-20260912.img.zip">Download the image</a>
-					<p class="sum">SHA-256 e6739d1491bb01b198071ea83e19387b11cfd63faf2068cc4f5b81366511094e</p>
+					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.38-beta/phosphor-0.27.38-sdcard-20260912.img.zip">Download the image</a>
+					<p class="sum">SHA-256 20ad103e827a14802408ccf81889ca0105f4a5d2795c6c3caec990c7edbf7ea8</p>
 				</div>
 				<div class="dl">
 					<h3>Update package</h3>
-					<p class="meta">phosphor-0.27.37-armhf.tar.gz · 4.7 MB</p>
+					<p class="meta">phosphor-0.27.38-armhf.tar.gz · 5.2 MB</p>
 					<p>Already running Phosphor? This updates it. Your library, box art, saves and settings stay as they are.</p>
 					<ol>
 						<li>Copy it to <code>phosphor/updates</code> on the SD card, over the network share or with Phosphor for Windows (Settings › Power &amp; updates › Update Phosphor).</li>
 						<li>On the TV: Settings › Update Phosphor, choose it, Install. The SuperStation restarts by itself when it's done.</li>
 					</ol>
-					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.37-beta/phosphor-0.27.37-armhf.tar.gz">Download the update</a>
-					<p class="sum">SHA-256 00edcb5a4636e0d7f29024e3fb78fe907d0f88c85e5a8a2f576b6d8435279e91</p>
+					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.38-beta/phosphor-0.27.38-armhf.tar.gz">Download the update</a>
+					<p class="sum">SHA-256 b8527ed9828aa71775f5e3578d1442e66bf870668d3e9cadf9f201684ccff326</p>
 				</div>
 				<div class="dl">
 					<h3>Phosphor for Windows</h3>
-					<p class="meta">Phosphor_win_0.2.30.zip · 4.4 MB · Windows 10 and 11</p>
-					<p>The PC companion: the library and box art (looked up on the PC, much faster), memory cards save by save, the SuperStation's settings and tools, and SD card flashing.</p>
+					<p class="meta">Phosphor_win_0.2.31.zip · 4.3 MB · Windows 10 and 11</p>
+					<p>The PC companion: the library and box art (looked up on the PC, much faster), memory cards save by save, the SuperStation's settings and tools, SD card flashing, the music player, and Steam soundtracks sent to the SuperStation.</p>
 					<ol>
 						<li>Unzip it and run Phosphor.exe; there's no installer. Windows may warn about an unknown app: More info › Run anyway.</li>
 						<li>Pair it with the code the TV shows in Settings › Remote access.</li>
 					</ol>
-					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.37-beta/Phosphor_win_0.2.30.zip">Download for Windows</a>
-					<p class="sum">SHA-256 7aaaa6b01fea931fee824172bbeb33c63822e88ebb29f4d4236a849e71f31d6d</p>
+					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.38-beta/Phosphor_win_0.2.31.zip">Download for Windows</a>
+					<p class="sum">SHA-256 deeae25f516949fc1537a31b82625d0004a7542bda81f1f0905589c41e1e1e25</p>
 				</div>
 			</div>
 		</div>
@@ -408,6 +408,19 @@ footer p { margin: 0; max-width: 40rem; }
 			<h2>Credits</h2>
 			<p class="intro">Phosphor builds on the work of these people and projects. Thank you.</p>
 			<div class="credits">
+				<div>
+					<h3>The SuperStation One</h3>
+					<ul>
+						<li><b>Taki and Retro Remake</b>, for making the SuperStation One. Thank you for such excellent hardware.</li>
+					</ul>
+					<h3>Discs, achievements and music</h3>
+					<ul>
+						<li><a href="https://github.com/Anime0t4ku/main_mister_physical_disc">Main_MiSTer_Physical_Disc</a>: Anime0t4ku and bonna79. Disc support from the dock's drive, in Phosphor's Main. GPL-3.0.</li>
+						<li><a href="https://github.com/odelot/Main_MiSTer">MiSTer RetroAchievements Main and cores</a>: odelot. RetroAchievements in Phosphor's Main, and the cores it uses. GPL-3.0.</li>
+						<li><a href="https://github.com/RetroAchievements/rcheevos">rcheevos</a>: the RetroAchievements team. MIT. Achievements, badges and profiles from <a href="https://retroachievements.org">retroachievements.org</a>.</li>
+						<li><a href="https://musicbrainz.org">MusicBrainz</a> (music CD names) and the <a href="https://coverartarchive.org">Cover Art Archive</a> (their covers).</li>
+					</ul>
+				</div>
 				<div>
 					<h3>MiSTer and its community</h3>
 					<ul>
@@ -425,7 +438,8 @@ footer p { margin: 0; max-width: 40rem; }
 						<li><a href="https://www.sqlite.org">SQLite</a>: public domain.</li>
 						<li><a href="https://github.com/DaveGamble/cJSON">cJSON</a>: Dave Gamble and contributors. MIT.</li>
 						<li><a href="https://github.com/rtissera/libchdr">libchdr</a>: Romain Tisserand and contributors. BSD-3-Clause. With <a href="https://www.7-zip.org/sdk.html">LZMA SDK</a> (Igor Pavlov, public domain), <a href="https://github.com/richgel999/miniz">miniz</a> (MIT) and <a href="https://github.com/facebook/zstd">Zstandard</a> (BSD).</li>
-						<li><a href="https://github.com/nothings/stb">stb_image</a>: Sean Barrett. Public domain or MIT.</li>
+						<li><a href="https://github.com/nothings/stb">stb_image and stb_vorbis</a>: Sean Barrett. Public domain or MIT.</li>
+						<li><a href="https://github.com/mackron/dr_libs">dr_flac, dr_mp3 and dr_wav</a>: David Reid. Public domain or MIT-0.</li>
 						<li><a href="https://go.dev">Go</a> and its golang.org/x packages: The Go Authors. BSD-3-Clause.</li>
 						<li><a href="https://github.com/bugst/go-serial">go.bug.st/serial</a>: Cristian Maglie. BSD-3-Clause.</li>
 					</ul>
