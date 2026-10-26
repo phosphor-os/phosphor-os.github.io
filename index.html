@@ -364,7 +364,7 @@ footer p { margin: 0; max-width: 40rem; }
 				<li class="ours"><b>phosphord and modules</b><span>The library, box art, backups, cloud saves, restore points and health checks. Each does its work when you ask, not on a timer.</span></li>
 				<li class="ours"><b>Phosphor and Phosphor for Windows</b><span>What you see and hold.</span></li>
 			</ol>
-			<p class="stack-key"><i></i>Phosphor's parts. The changes to MiSTer's own programs will be published under the GPL, like MiSTer.</p>
+			<p class="stack-key"><i></i>Phosphor's parts. The changes to MiSTer's own programs are published under the GPL, like MiSTer: <a href="https://github.com/f3bandit/phosphor-main">phosphor-main</a> and <a href="https://github.com/f3bandit/phosphor-menu">phosphor-menu</a>.</p>
 		</div>
 	</section>
 
@@ -461,8 +461,8 @@ footer p { margin: 0; max-width: 40rem; }
 					<h3>MiSTer and its community</h3>
 					<ul>
 						<li><a href="https://github.com/MiSTer-devel">MiSTer FPGA</a>: Alexey Melnikov (Sorgelig) and the MiSTer-devel contributors. MiSTer Main is based on MiST by Till Harbaum, Minimig by Dennis van Weeren and other projects. GPL-3.0.</li>
-						<li><a href="https://github.com/MiSTer-devel/Main_MiSTer">MiSTer Main</a> and <a href="https://github.com/MiSTer-devel/Menu_MiSTer">the menu core</a>: Phosphor's Main and menu core are forks of them. GPL-3.0.</li>
-						<li>MiSTer's Linux and kernel, <a href="https://github.com/MiSTer-devel/mr-fusion">Mr. Fusion</a>, <a href="https://github.com/MiSTer-devel/SD-Installer-Win64_MiSTer">the MiSTer release</a>, <a href="https://github.com/MiSTer-devel/Filters_MiSTer">Filters</a>, <a href="https://github.com/MiSTer-devel/ShadowMasks_MiSTer">Shadow Masks</a> and <a href="https://github.com/MiSTer-devel/Presets_MiSTer">Presets</a>: MiSTer-devel, used as they are in the SD card image.</li>
+						<li><a href="https://github.com/MiSTer-devel/Main_MiSTer">MiSTer Main</a> and <a href="https://github.com/MiSTer-devel/Menu_MiSTer">the menu core</a>: Phosphor's Main (<a href="https://github.com/f3bandit/phosphor-main">phosphor-main</a>, GPL-3.0) and menu core (<a href="https://github.com/f3bandit/phosphor-menu">phosphor-menu</a>; MiSTer's menu core is GPL-2.0-or-later, Phosphor's version GPL-3.0) are forks of them, with their source public. Each release links the exact source it was built from.</li>
+						<li>MiSTer's Linux and kernel, <a href="https://github.com/MiSTer-devel/mr-fusion">Mr. Fusion</a>, <a href="https://github.com/MiSTer-devel/SD-Installer-Win64_MiSTer">the MiSTer release</a>, <a href="https://github.com/MiSTer-devel/Filters_MiSTer">Filters</a>, <a href="https://github.com/MiSTer-devel/ShadowMasks_MiSTer">Shadow Masks</a> and <a href="https://github.com/MiSTer-devel/Presets_MiSTer">Presets</a>: MiSTer-devel, used as they are in the SD card image, which lists where their source is (LICENSES/SOURCES.txt on the card).</li>
 						<li><a href="https://github.com/theypsilon/Update_All_MiSTer">Update All</a> and <a href="https://github.com/MiSTer-devel/Downloader_MiSTer">Downloader</a>: theypsilon. GPL-3.0.</li>
 						<li><a href="https://github.com/mdqinc/SDL_GameControllerDB">SDL_GameControllerDB</a>: the controller list MiSTer uses, read by Phosphor. zlib licence.</li>
 					</ul>
@@ -470,7 +470,8 @@ footer p { margin: 0; max-width: 40rem; }
 				<div>
 					<h3>Libraries</h3>
 					<ul>
-						<li><a href="https://lvgl.io">LVGL</a>: LVGL Kft and contributors. MIT.</li>
+						<li><a href="https://lvgl.io">LVGL</a>: LVGL Kft and contributors. MIT. With <a href="https://lodev.org/lodepng/">LodePNG</a> (Lode Vandevenne, zlib licence).</li>
+						<li><a href="https://musl.libc.org">musl</a>: Rich Felker and contributors. MIT. The C library Phosphor's programs on the SS1 are built with.</li>
 						<li><a href="https://www.sqlite.org">SQLite</a>: public domain.</li>
 						<li><a href="https://github.com/DaveGamble/cJSON">cJSON</a>: Dave Gamble and contributors. MIT.</li>
 						<li><a href="https://github.com/rtissera/libchdr">libchdr</a>: Romain Tisserand and contributors. BSD-3-Clause. With <a href="https://www.7-zip.org/sdk.html">LZMA SDK</a> (Igor Pavlov, public domain), <a href="https://github.com/richgel999/miniz">miniz</a> (MIT) and <a href="https://github.com/facebook/zstd">Zstandard</a> (BSD).</li>
@@ -478,7 +479,10 @@ footer p { margin: 0; max-width: 40rem; }
 						<li><a href="https://github.com/mackron/dr_libs">dr_flac, dr_mp3 and dr_wav</a>: David Reid. Public domain or MIT-0.</li>
 						<li><a href="https://go.dev">Go</a> and its golang.org/x packages: The Go Authors. BSD-3-Clause.</li>
 						<li><a href="https://github.com/bugst/go-serial">go.bug.st/serial</a>: Cristian Maglie. BSD-3-Clause.</li>
+						<li>The RetroAchievements unlock sound: from odelot's RetroAchievements Main, credited to odelot; not Phosphor's work.</li>
+						<li><a href="https://developer.android.com/jetpack/androidx">AndroidX</a>, <a href="https://kotlinlang.org">Kotlin</a> and <a href="https://github.com/Kotlin/kotlinx.coroutines">kotlinx.coroutines</a>: The Android Open Source Project and JetBrains. Apache-2.0. In Phosphor for Android.</li>
 					</ul>
+					<p class="fine">Their licences in full come with every download: <a href="https://github.com/f3bandit/phosphor_os/blob/main/THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a>.</p>
 				</div>
 				<div>
 					<h3>Fonts</h3>
@@ -492,7 +496,7 @@ footer p { margin: 0; max-width: 40rem; }
 						<li><a href="https://github.com/libretro/libretro-database">libretro database</a> and <a href="https://thumbnails.libretro.com">libretro thumbnails</a></li>
 						<li><a href="https://www.screenscraper.fr">ScreenScraper</a>: game information and media from the ScreenScraper community, under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. Used with your own screenscraper.fr account.</li>
 						<li><a href="https://thegamesdb.net">TheGamesDB</a>, <a href="https://gamesdb.launchbox-app.com">LaunchBox Games Database</a>, <a href="https://adb.arcadeitalia.net">ArcadeDB</a> and <a href="https://www.igdb.com">IGDB</a></li>
-						<li>Fan-made box art for ROM hacks and homebrew: each cover's maker and where it was posted are listed in <a href="https://github.com/f3bandit/phosphor_os/blob/main/apps/windows/fanart/README.md">Phosphor's fan art list</a>.</li>
+						<li>Fan-made box art for ROM hacks and homebrew: each cover belongs to its maker, who is credited with where it was posted in <a href="https://github.com/f3bandit/phosphor_os/blob/main/apps/windows/fanart/README.md">Phosphor's fan art list</a>. Not Phosphor's work and not under Phosphor's licence; a maker who wants a cover taken out only has to ask.</li>
 					</ul>
 					<p class="fine">Looked up only when you ask, from the sources you turn on.</p>
 				</div>
