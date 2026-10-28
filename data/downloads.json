@@ -66,5 +66,33 @@
       "0.27.41-beta/phosphor-0.27.41-armhf.tar.gz": 0,
       "0.27.41-beta/phosphor-0.27.41-sdcard-20260912.img.zip": 0
     }
+  },
+  {
+    "date": "2026-10-28",
+    "counts": {
+      "0.27.24-beta/Phosphor_win_0.2.16.zip": 3,
+      "0.27.24-beta/phosphor-0.27.24-armhf.tar.gz": 4,
+      "0.27.24-beta/phosphor-0.27.24-sdcard-20260912.img.zip": 4,
+      "0.27.36-beta/Phosphor_win_0.2.29.zip": 3,
+      "0.27.36-beta/SHA256SUMS.txt": 2,
+      "0.27.36-beta/phosphor-0.27.36-armhf.tar.gz": 2,
+      "0.27.36-beta/phosphor-0.27.36-sdcard-20260912.img.zip": 2,
+      "0.27.37-beta/Phosphor_win_0.2.30.zip": 1,
+      "0.27.37-beta/SHA256SUMS.txt": 0,
+      "0.27.37-beta/phosphor-0.27.37-armhf.tar.gz": 1,
+      "0.27.37-beta/phosphor-0.27.37-sdcard-20260912.img.zip": 1,
+      "0.27.38-beta/Phosphor_win_0.2.31.zip": 1,
+      "0.27.38-beta/SHA256SUMS.txt": 0,
+      "0.27.38-beta/phosphor-0.27.38-armhf.tar.gz": 1,
+      "0.27.38-beta/phosphor-0.27.38-sdcard-20260912.img.zip": 1,
+      "0.27.39-beta/Phosphor_win_0.2.38.zip": 1,
+      "0.27.39-beta/SHA256SUMS.txt": 0,
+      "0.27.39-beta/phosphor-0.27.39-armhf.tar.gz": 1,
+      "0.27.39-beta/phosphor-0.27.39-sdcard-20260912.img.zip": 1,
+      "0.27.41-beta/Phosphor_win_0.2.43.zip": 1,
+      "0.27.41-beta/SHA256SUMS.txt": 2,
+      "0.27.41-beta/phosphor-0.27.41-armhf.tar.gz": 2,
+      "0.27.41-beta/phosphor-0.27.41-sdcard-20260912.img.zip": 11
+    }
   }
 ]
