@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://phosphor-os.github.io/img/tv-home.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Phosphor OS","alternateName":"Phosphor","applicationCategory":"GameApplication","operatingSystem":"MiSTer (SuperStation One)","softwareVersion":"0.27.47 beta","description":"Unofficial custom firmware for the SuperStation One, built on mainline MiSTer and its Linux: a console-style home screen with your games, box art, controllers, memory cards, WiFi and Bluetooth.","url":"https://phosphor-os.github.io/","image":"https://phosphor-os.github.io/img/tv-home.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"f3bandit"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Phosphor OS","alternateName":"Phosphor","applicationCategory":"GameApplication","operatingSystem":"MiSTer (SuperStation One)","softwareVersion":"0.27.48 beta","description":"Unofficial custom firmware for the SuperStation One, built on mainline MiSTer and its Linux: a console-style home screen with your games, box art, controllers, memory cards, WiFi and Bluetooth.","url":"https://phosphor-os.github.io/","image":"https://phosphor-os.github.io/img/tv-home.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"f3bandit"}}
 </script>
 <meta name="theme-color" content="#0e0e10">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -219,7 +219,7 @@ footer p { margin: 0; max-width: 40rem; }
 	<div class="wrap hero">
 		<h1>Your MiSTer, as a console.</h1>
 		<p class="lede">Phosphor is unofficial custom firmware for the <strong>SuperStation One</strong>, built on <strong>mainline MiSTer and its Linux</strong>. Pick up a controller and your games are there with box art, ready to play. Memory cards, Bluetooth, WiFi and saves are a few button presses away, on the TV or from your PC.</p>
-		<p class="cta"><a class="go" href="#download">Download the beta</a><span>0.27.47 · SD card image, update and Windows app</span></p>
+		<p class="cta"><a class="go" href="#download">Download the beta</a><span>0.27.48 · SD card image, update and Windows app</span></p>
 		<div class="tv">
 			<div class="screen"><img src="img/tv-home.png" width="1280" height="720" alt="Phosphor's home screen: the library by kind of system (Disc, Cartridge, Handheld, Arcade, Computer, Music) and the last game played, with a disc in the drive shown in the status bar"></div>
 		</div>
@@ -323,7 +323,8 @@ footer p { margin: 0; max-width: 40rem; }
 				<div>
 					<h3>Drives you can check</h3>
 					<p>See how full the SD card, NVMe and USB drives are, and check them from the couch: a quick check, whether Windows will complain about the card, a speed test, the NVMe drive's own health report, and a file system repair for NVMe and USB drives.</p>
-					<p>Checks only read, except the speed test and repair, which say so first.</p>
+					<p>The SD card too, without a PC: Phosphor restarts from a copy of MiSTer's Linux on a USB or NVMe drive, repairs the card while nothing is using it, shows it on the TV, and starts again.</p>
+					<p>Checks only read, except the speed test and repairs, which say so first.</p>
 				</div>
 			</div>
 
@@ -403,42 +404,42 @@ footer p { margin: 0; max-width: 40rem; }
 	<section id="download">
 		<div class="wrap">
 			<h2>Download <span class="beta">BETA</span></h2>
-			<p class="intro">Phosphor 0.27.47 for the SuperStation One. <b>Testing release: CRT modes need feedback</b> (240p, 288p, 480i, 576i and 480p on real CRTs, PVMs and VGA monitors), so please report how it looks on the Discord. It's a beta: tested on one SuperStation One, still changing quickly, and some things will break. Phosphor is a working name.</p>
+			<p class="intro">Phosphor 0.27.48 for the SuperStation One. <b>Testing release: CRT modes need feedback</b> (240p, 288p, 480i, 576i and 480p on real CRTs, PVMs and VGA monitors), so please report how it looks on the Discord. It's a beta: tested on one SuperStation One, still changing quickly, and some things will break. Phosphor is a working name.</p>
 			<div class="dl-warn"><b>Back up your SD card before you try it.</b> The SD card image replaces everything on the card it's written to. Phosphor keeps MiSTer as it is underneath: MiSTer's own menu is one button away, and <code>phosphor/uninstall.sh</code> takes Phosphor off again.</div>
 			<div class="downloads">
 				<div class="dl">
 					<h3>SD card image</h3>
-					<p class="meta">phosphor-0.27.47-sdcard-20260912.img.zip · 146 MB</p>
+					<p class="meta">phosphor-0.27.48-sdcard-20260912.img.zip · 146 MB</p>
 					<p>A new card with MiSTer and Phosphor on it. No WiFi or other settings of anyone's on it.</p>
 					<ol>
 						<li>Write it to a microSD card with balenaEtcher, Raspberry Pi Imager or Rufus. Everything on the card is erased.</li>
 						<li>Optional: put a <code>wpa_supplicant.conf</code> on the card's MRFUSION drive for WiFi straight away, or set WiFi up on the TV later.</li>
 						<li>Put it in the SuperStation One and switch on. The first start sets the card up (a few minutes), then Phosphor starts.</li>
 					</ol>
-					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.47-beta/phosphor-0.27.47-sdcard-20260912.img.zip">Download the image</a>
-					<p class="sum">SHA-256 c4aad35a95ad97154a1085e7550a570ce1fbac325d6147ba7ee22fd965d12d41</p>
+					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.48-beta/phosphor-0.27.48-sdcard-20260912.img.zip">Download the image</a>
+					<p class="sum">SHA-256 0a531649ed07b238860ad8e6e29bc79955c703d2406a5f359a5379fb591f0e64</p>
 				</div>
 				<div class="dl">
 					<h3>Update package</h3>
-					<p class="meta">phosphor-0.27.47-armhf.tar.gz · 4.7 MB</p>
+					<p class="meta">phosphor-0.27.48-armhf.tar.gz · 4.7 MB</p>
 					<p>Already running Phosphor? This updates it. Your library, box art, saves and settings stay as they are.</p>
 					<ol>
 						<li>Copy it to <code>phosphor/updates</code> on the SD card, over the network share or with Phosphor for Windows (Settings › Power &amp; updates › Update Phosphor).</li>
 						<li>On the TV: Settings › Update Phosphor, choose it, Install. The SuperStation restarts by itself when it's done.</li>
 					</ol>
-					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.47-beta/phosphor-0.27.47-armhf.tar.gz">Download the update</a>
-					<p class="sum">SHA-256 6195c99a9da060c2331f3402c8a6e3a5a9e3972073fb47f885141ae5b7169b3a</p>
+					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.48-beta/phosphor-0.27.48-armhf.tar.gz">Download the update</a>
+					<p class="sum">SHA-256 62bad56212e4e442de4340fcc5a5ac5138c2a1f8a862bf356d3d3a3adabf8b57</p>
 				</div>
 				<div class="dl">
 					<h3>Phosphor for Windows</h3>
-					<p class="meta">Phosphor_win_0.2.45.zip · 4.5 MB · Windows 10 and 11</p>
+					<p class="meta">Phosphor_win_0.2.46.zip · 4.5 MB · Windows 10 and 11</p>
 					<p>The PC companion: the library and box art (looked up on the PC, much faster), memory cards save by save, the SuperStation's settings and tools, SD card flashing and repair, the music player, and Steam soundtracks sent to the SuperStation.</p>
 					<ol>
 						<li>Unzip it and run Phosphor.exe; there's no installer. Windows may warn about an unknown app: More info › Run anyway.</li>
 						<li>Pair it with the code the TV shows in Settings › Remote access.</li>
 					</ol>
-					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.47-beta/Phosphor_win_0.2.45.zip">Download for Windows</a>
-					<p class="sum">SHA-256 9819ef6f60fbeb7e7cea1abfa7cdd9d57d05e94cbef0bcd338db93daf41252d5</p>
+					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.48-beta/Phosphor_win_0.2.46.zip">Download for Windows</a>
+					<p class="sum">SHA-256 4aba50bb80e52687eaeda72db06fc3afea65e8b08822563cd2d6eeefb003e8ed</p>
 				</div>
 			</div>
 		</div>
