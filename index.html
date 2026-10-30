@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://phosphor-os.github.io/img/tv-home.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Phosphor OS","alternateName":"Phosphor","applicationCategory":"GameApplication","operatingSystem":"MiSTer (SuperStation One)","softwareVersion":"0.27.56 beta","description":"Unofficial custom firmware for the SuperStation One, built on mainline MiSTer and its Linux: a console-style home screen with your games, box art, controllers, memory cards, WiFi and Bluetooth.","url":"https://phosphor-os.github.io/","image":"https://phosphor-os.github.io/img/tv-home.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"f3bandit"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Phosphor OS","alternateName":"Phosphor","applicationCategory":"GameApplication","operatingSystem":"MiSTer (SuperStation One)","softwareVersion":"0.27.57 beta","description":"Unofficial custom firmware for the SuperStation One, built on mainline MiSTer and its Linux: a console-style home screen with your games, box art, controllers, memory cards, WiFi and Bluetooth.","url":"https://phosphor-os.github.io/","image":"https://phosphor-os.github.io/img/tv-home.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"f3bandit"}}
 </script>
 <meta name="theme-color" content="#0e0e10">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -220,7 +220,7 @@ footer p { margin: 0; max-width: 40rem; }
 	<div class="wrap hero">
 		<h1>Your MiSTer, as a console.</h1>
 		<p class="lede">Phosphor is unofficial custom firmware for the <strong>SuperStation One</strong>, built on <strong>mainline MiSTer and its Linux</strong>. Pick up a controller and your games are there with box art, ready to play. Memory cards, Bluetooth, WiFi and saves are a few button presses away, on the TV or from your PC.</p>
-		<p class="cta"><a class="go" href="#download">Download the beta</a><span>0.27.56 · SD card image, update and Windows app</span></p>
+		<p class="cta"><a class="go" href="#download">Download the beta</a><span>0.27.57 · SD card image, update and Windows app</span></p>
 		<div class="tv">
 			<div class="screen"><img src="img/tv-home.webp" width="1280" height="720" alt="Phosphor's home screen on a SuperStation One: the library by kind of system (Disc, Cartridge, Handheld, Arcade, Computer) with game counts, and the last game played"></div>
 		</div>
@@ -430,31 +430,31 @@ footer p { margin: 0; max-width: 40rem; }
 	<section id="download">
 		<div class="wrap">
 			<h2>Download <span class="beta">BETA</span></h2>
-			<p class="intro">Phosphor 0.27.56 for the SuperStation One. <b>Testing release: CRT modes need feedback</b> (240p, 288p, 480i, 576i and 480p on real CRTs, PVMs and VGA monitors), so please report how it looks on the Discord. It's a beta: tested on one SuperStation One, still changing quickly, and some things will break. Phosphor is a working name.</p>
+			<p class="intro">Phosphor 0.27.57 for the SuperStation One. <b>Testing release: CRT modes need feedback</b> (240p, 288p, 480i, 576i and 480p on real CRTs, PVMs and VGA monitors), so please report how it looks on the Discord. It's a beta: tested on one SuperStation One, still changing quickly, and some things will break. Phosphor is a working name.</p>
 			<div class="dl-warn"><b>Back up your SD card before you try it.</b> The SD card image replaces everything on the card it's written to. Phosphor keeps MiSTer as it is underneath: MiSTer's own menu is one button away, and <code>phosphor/uninstall.sh</code> takes Phosphor off again.</div>
 			<div class="downloads">
 				<div class="dl">
 					<h3>SD card image</h3>
-					<p class="meta">phosphor-0.27.56-sdcard-20260912.img.zip · 146 MB</p>
+					<p class="meta">phosphor-0.27.57-sdcard-20260912.img.zip · 146 MB</p>
 					<p>A new card with MiSTer and Phosphor on it. No WiFi or other settings of anyone's on it.</p>
 					<ol>
 						<li>Write it to a microSD card with balenaEtcher, Raspberry Pi Imager or Rufus. Everything on the card is erased.</li>
 						<li>Optional: put a <code>wpa_supplicant.conf</code> on the card's MRFUSION drive for WiFi straight away, or set WiFi up on the TV later.</li>
 						<li>Put it in the SuperStation One and switch on. The first start sets the card up (a few minutes), then Phosphor starts.</li>
 					</ol>
-					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.56-beta/phosphor-0.27.56-sdcard-20260912.img.zip">Download the image</a>
-					<p class="sum">SHA-256 b0838c64d0acd1976ecc037e51b6937b83d115f0e759a1515018d5ae7c170eef</p>
+					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.57-beta/phosphor-0.27.57-sdcard-20260912.img.zip">Download the image</a>
+					<p class="sum">SHA-256 6ef05e9bcf91419c1c10e681a20ed44f0683f26c9fe54a1e70dcb825173d3565</p>
 				</div>
 				<div class="dl">
 					<h3>Update package</h3>
-					<p class="meta">phosphor-0.27.56-armhf.tar.gz · 4.7 MB</p>
+					<p class="meta">phosphor-0.27.57-armhf.tar.gz · 4.7 MB</p>
 					<p>Already running Phosphor? This updates it. Your library, box art, saves and settings stay as they are.</p>
 					<ol>
 						<li>Copy it to <code>phosphor/updates</code> on the SD card, over the network share or with Phosphor for Windows (Settings › Power &amp; updates › Update Phosphor).</li>
 						<li>On the TV: Settings › Update Phosphor, choose it, Install. The SuperStation restarts by itself when it's done.</li>
 					</ol>
-					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.56-beta/phosphor-0.27.56-armhf.tar.gz">Download the update</a>
-					<p class="sum">SHA-256 854a10fb575b4a615f4b7904b8bd7914609d7d59bc11df3a7665ff94d4b5c6ae</p>
+					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.57-beta/phosphor-0.27.57-armhf.tar.gz">Download the update</a>
+					<p class="sum">SHA-256 f289a810dbc18436c365108eb020484e884f96f341263856020b7904b82fe981</p>
 				</div>
 				<div class="dl">
 					<h3>Phosphor for Windows</h3>
@@ -464,8 +464,8 @@ footer p { margin: 0; max-width: 40rem; }
 						<li>Unzip it and run Phosphor.exe; there's no installer. Windows may warn about an unknown app: More info › Run anyway.</li>
 						<li>Pair it with the code the TV shows in Settings › Remote access.</li>
 					</ol>
-					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.56-beta/Phosphor_win_0.2.48.zip">Download for Windows</a>
-					<p class="sum">SHA-256 ec3f6507e40000e228c5005377a4024787d3b20fa419b3221378ca44e42520b4</p>
+					<a class="btn" href="https://github.com/f3bandit/phosphor_os/releases/download/0.27.57-beta/Phosphor_win_0.2.48.zip">Download for Windows</a>
+					<p class="sum">SHA-256 991fda34bc7db127b56fe8850659cabbca1d6c83a3a65bdd2a19ae8097d2abe2</p>
 				</div>
 			</div>
 		</div>
