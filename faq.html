@@ -60,8 +60,8 @@ footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 
 
 <main class="wrap">
 	<h1>FAQ</h1>
-	<p class="lede">How Phosphor works and why, pairing Phosphor for Windows, video and the DIP switches, and fixes for common SuperStation One problems.</p>
-	<p class="jump"><a href="#how">How Phosphor works</a><a href="#pc">Phosphor for Windows</a><a href="#video">Video and DIP switches</a><a href="#ss1">SuperStation problems</a><a href="#help">Getting help</a></p>
+	<p class="lede">How Phosphor works and why, pairing Phosphor for Windows, what Phosphor does to your drives and updates, video and the DIP switches, and fixes for common SuperStation One problems.</p>
+	<p class="jump"><a href="#how">How Phosphor works</a><a href="#pc">Phosphor for Windows</a><a href="#drives">Drives, repairs and updates</a><a href="#video">Video and DIP switches</a><a href="#ss1">SuperStation problems</a><a href="#help">Getting help</a></p>
 
 	<h2 id="how">How Phosphor works</h2>
 	<details><summary>What is Phosphor?</summary>
@@ -136,6 +136,48 @@ footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 
 	</details>
 	<details><summary>What happens when I put a file back?</summary>
 		<p>The SuperStation checks that the file arrived whole, and keeps a copy of the one it replaces first. If it was a system file, the app tells you to restart.</p>
+	</details>
+
+	<h2 id="drives">Drives, repairs and updates: what Phosphor changes</h2>
+	<details><summary>What does Phosphor change on my SuperStation, and does any of it send data anywhere?</summary>
+		<p>Nothing here goes online or sends anything anywhere. All of it is plain shell scripts and C you can read in <a href="https://github.com/f3bandit/phosphor_os">the source</a>. Phosphor keeps to:</p>
+		<ul>
+			<li><code>/media/fat/phosphor/</code>: the programs, your library, box art, settings, backups and logs;</li>
+			<li>its own marked block in <code>linux/user-startup.sh</code> (<code># phosphor: BEGIN</code> / <code>END</code>) that starts it at boot and runs the safe shutdown;</li>
+			<li>a small ID file on each drive (<code>phosphor/drive.id</code>, next question);</li>
+			<li>a small hook in Linux's own <code>/etc/usbmount</code> and <code>/etc/udev/rules.d</code> that hides the repair stick (below). It only acts on a drive with a repair copy of Linux on it;</li>
+			<li>the repair lines in <code>linux/u-boot.txt</code>, only if you set up Repair all drives (below);</li>
+			<li>the video settings once per card (see <a href="#video">Video</a>).</li>
+		</ul>
+		<p>It never moves, renames or deletes your games, saves or cores. <code>phosphor/uninstall.sh</code> takes it all off again.</p>
+	</details>
+	<details><summary>What is the <code>phosphor/drive.id</code> file on my drives?</summary>
+		<p>A few lines of text: a random ID for that drive, whether it's the SD card or a games drive, and when it was made. MiSTer names USB drives by the order they come up (<code>/media/usb0</code>, <code>usb1</code>...), so a stick plugged in first, or an NVMe drive that's slow to start, shuffles the numbers. The ID lets Phosphor's library recognise the drive under any number. Your games, play history, favourites and box art follow it, with no new scan. Delete it and Phosphor just makes a new one.</p>
+	</details>
+	<details><summary>My games drive changed from usb0 to usb1. Are my games gone?</summary>
+		<p>No. Nothing on the drive changed, only the number MiSTer gave it. Since 0.27.54 Phosphor's library follows the drive by its ID. Since 0.27.56 the repair stick, which caused most of these shuffles, never takes a number, so the dock's NVMe drive keeps <code>usb0</code>. For Console Mode, SS1 Tool's <b>Drive guard</b> keeps the games drive at <code>usb0</code>.</p>
+	</details>
+	<details><summary>The NVMe drive was missing after a restart</summary>
+		<p>A restart keeps the dock powered, and its NVMe adapter (a JMicron bridge) can come up stuck ("Unit Not Ready"). Since 0.27.55 Phosphor looks for a drive it has seen before again every 30 seconds for 3 minutes, and stops the moment it's there. It never touches the dock while a drive is on it. If the drive still isn't back, the TV says to unplug the SuperStation's power for 10 seconds, which always clears it.</p>
+	</details>
+	<details><summary>Why does a restart take a few seconds longer now?</summary>
+		<p>Since 0.27.56 every restart is a safe one: from Phosphor, MiSTer's own menu, Update All or the downloader, a terminal, or a core that couldn't load. Before the restart, Phosphor's modules stop, every drive is flushed and made read-only, and the USB devices are let go. That's why the SD card no longer comes back "not shut down safely", and why Windows stops asking to scan it.</p>
+	</details>
+	<details><summary>What is Repair all drives, and what does it put on my USB stick?</summary>
+		<p>The SD card can't be repaired while MiSTer runs from it. Repair all drives (<b>Settings › Storage</b>) puts a copy of your SuperStation's own MiSTer Linux on a spare USB stick (about 400 MB, in <code>phosphor/rescue</code>). It also adds a few lines to the SD card's <code>linux/u-boot.txt</code>, starting <code>phos_</code>, that do nothing until you choose <b>Restart and repair</b>. Then one restart repairs the SD card, the NVMe drive and any other drives while nothing is using them, and starts Phosphor again with the results.</p>
+		<p>The copy is only made again when MiSTer's Linux changes (about 44 seconds). <b>Turn off drive repair</b> takes the lines and the copy away. A stick shared with SS1 Tool keeps both copies side by side (<code>phosphor/rescue</code>, <code>ss1tool/rescue</code>).</p>
+	</details>
+	<details><summary>Where did my repair stick go? It's not in the drive list</summary>
+		<p>Since 0.27.56 it's at <code>/media/repair</code>, read-only, the moment it's plugged in, and it never gets a <code>/media/usbN</code>. As a normal drive it got used for things it isn't for: Update All's downloader put dozens of empty games folders on one. Hidden and read-only, nothing writes to it except Repair all drives, which makes it writable only while it updates its own files. It's still repaired with every other drive. If something else did put files on it, <b>Settings › Storage › Repair all drives</b> lists them, with <b>Move them to the games drive</b>.</p>
+		<p>A drive is only treated as the repair stick if it has a repair copy of Linux on it, and never if it's the dock's NVMe drive.</p>
+	</details>
+	<details><summary>What does update guard do? Does it change my updates?</summary>
+		<p>It doesn't change your updates. It makes them safe to take back. Updates always run only when you start them.</p>
+		<ul>
+			<li><b>Restore points.</b> When you start an update from Phosphor (Update All, the downloader, a Phosphor update), update guard first saves the files it's about to replace: MiSTer, the menu core and the kernel, plus Linux itself if you turn that on. <b>Settings › Updates &amp; restore points</b> puts an earlier set back. It saves the files in use first, so even that can be undone.</li>
+			<li><b>Settings a Linux update resets.</b> A Linux update replaces <code>linux.img</code>, which puts things like SSH keys, a static IP or the host name back to stock. Update guard keeps copies and lists what went back, and only restores them when you ask.</li>
+		</ul>
+		<p>Restore points are kept on the SD card in <code>phosphor/restore-points</code> (the newest 3, each file stored once however many points use it), and the settings copies in <code>phosphor/guard</code>. Files Phosphor installs itself are never part of them. Nothing is rolled back or restored by itself.</p>
 	</details>
 
 	<h2 id="video">Video and DIP switches</h2>
