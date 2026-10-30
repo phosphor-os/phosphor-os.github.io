@@ -32,8 +32,8 @@ h2 { font-size: 1.3rem; font-weight: 600; margin: 3rem 0 1rem; scroll-margin-top
 details { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; margin: .6rem 0; padding: 0 1.1rem; }
 summary { cursor: pointer; font-weight: 500; padding: .9rem 0; }
 details[open] summary { border-bottom: 1px solid var(--line); margin-bottom: .8rem; }
-details p, details ul { margin: 0 0 .9rem; }
-details ul { padding-left: 1.2rem; }
+details p, details ul, details ol { margin: 0 0 .9rem; }
+details ul, details ol { padding-left: 1.2rem; }
 code { font: .875em "Phos Mono", ui-monospace, monospace; background: #222228; border: 1px solid var(--line); border-radius: 4px; padding: .05em .35em; overflow-wrap: anywhere; }
 .dim { color: var(--dim); font-size: .9375rem; }
 .tw { overflow-x: auto; margin: 0 0 .9rem; }
@@ -43,6 +43,8 @@ td code { white-space: nowrap; }
 th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { color: var(--dim); font-weight: 500; font-size: .8125rem; }
 tr:last-child td { border-bottom: 0; }
+.tw.stack table { min-width: 0; }
+.tw.stack td:first-child { min-width: 0; width: 42%; }
 footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 3rem; color: var(--dim); font-size: .9375rem; }
 </style>
 </head>
@@ -52,6 +54,7 @@ footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 
 	<a class="mark" href="./">PHOSPHOR</a>
 	<nav aria-label="Sections">
 		<a href="./#tour">What it does</a>
+		<a href="screens.html">Screens</a>
 		<a href="./#download">Download</a>
 		<a href="faq.html" aria-current="page">FAQ</a>
 		<a href="https://discord.gg/rTewZCCCFR">Discord</a>
@@ -61,7 +64,112 @@ footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 
 <main class="wrap">
 	<h1>FAQ</h1>
 	<p class="lede">How Phosphor works and why, pairing Phosphor for Windows, what Phosphor does to your drives and updates, video and the DIP switches, and fixes for common SuperStation One problems.</p>
-	<p class="jump"><a href="#how">How Phosphor works</a><a href="#pc">Phosphor for Windows</a><a href="#drives">Drives, repairs and updates</a><a href="#video">Video and DIP switches</a><a href="#ss1">SuperStation problems</a><a href="#help">Getting help</a></p>
+	<p class="jump"><a href="#where">Where to find things</a><a href="#setup">Setting things up</a><a href="#controllers">Controllers</a><a href="#how">How Phosphor works</a><a href="#pc">Phosphor for Windows</a><a href="#drives">Drives, repairs and updates</a><a href="#video">Video and DIP switches</a><a href="#ss1">SuperStation problems</a><a href="#help">Getting help</a></p>
+
+	<h2 id="where">Where to find things</h2>
+	<p class="dim">The menu button on the home screen opens Settings. <a href="screens.html">Screens</a> shows each one.</p>
+	<details open><summary>Where is...?</summary>
+		<div class="tw stack"><table>
+			<thead><tr><th>I want to</th><th>Where</th></tr></thead>
+			<tbody>
+				<tr><td>Play a game</td><td>Home › Disc, Cartridge, Handheld, Arcade or Computer › a system › A</td></tr>
+				<tr><td>Find a game by name</td><td>Home › Y (Search)</td></tr>
+				<tr><td>Play the last game again</td><td>Home › X, or <b>Pick up where you left off</b></td></tr>
+				<tr><td>Pick which core runs a game</td><td>A game in any list › SELECT (Start with)</td></tr>
+				<tr><td>Mark a favourite</td><td>A game in any list › X</td></tr>
+				<tr><td>Add new games to the library</td><td>Settings › Look for games</td></tr>
+				<tr><td>Get box art and details</td><td>Settings › Get box art and details (sources: Settings › Box art sources)</td></tr>
+				<tr><td>Change a core's settings in a game</td><td>In a game: menu button › MiSTer menu</td></tr>
+				<tr><td>Load another game without quitting</td><td>In a game: menu button › Load game</td></tr>
+				<tr><td>Join WiFi</td><td>Settings › WiFi</td></tr>
+				<tr><td>Pair a Bluetooth controller</td><td>Settings › Bluetooth, or hold the SS1's BT button</td></tr>
+				<tr><td>Map or test a controller</td><td>Settings › Controllers (A maps, Y tests)</td></tr>
+				<tr><td>Back up a memory card</td><td>Settings › Front ports &amp; memory cards</td></tr>
+				<tr><td>Change the video output, try CRT mode</td><td>Settings › Video</td></tr>
+				<tr><td>Accent colour, texture, wallpaper, clock, screensaver</td><td>Settings, left/right on each row</td></tr>
+				<tr><td>RetroAchievements</td><td>Settings › RetroAchievements</td></tr>
+				<tr><td>Take a screenshot</td><td>Both sticks in (L3 + R3); they're in Settings › Screenshots</td></tr>
+				<tr><td>Saves to the cloud</td><td>Settings › Cloud saves</td></tr>
+				<tr><td>Restore saves from a snapshot</td><td>Settings › Backups</td></tr>
+				<tr><td>Check or repair a drive</td><td>Settings › Storage</td></tr>
+				<tr><td>Get cores (MiSTer's Update, Update All)</td><td>Settings › Update / Update All</td></tr>
+				<tr><td>Update Phosphor, or go back a version</td><td>The yellow icon in the top bar, or Settings › Update Phosphor</td></tr>
+				<tr><td>Undo a MiSTer update</td><td>Settings › Updates &amp; restore points</td></tr>
+				<tr><td>Run a script from Scripts</td><td>Settings › Scripts</td></tr>
+				<tr><td>Make a report for support</td><td>Settings › Diagnostics › X (Save a report for support)</td></tr>
+				<tr><td>Copy files from a PC</td><td>Settings › Network share (Samba), or Phosphor for Windows</td></tr>
+				<tr><td>Use the phone app or Phosphor for Windows</td><td>Settings › Remote access › Pair a device</td></tr>
+				<tr><td>MiSTer's own menu</td><td>Settings › MiSTer menu (OSD); back: its System page › Launch Phosphor</td></tr>
+				<tr><td>Restart or shut down safely</td><td>Select + Start anywhere, or Settings › Restart / Shut down safely</td></tr>
+			</tbody>
+		</table></div>
+	</details>
+
+	<h2 id="setup">Setting things up</h2>
+	<details><summary>First start: what do I set up?</summary>
+		<ul>
+			<li><b>WiFi</b> (Settings › WiFi), or plug a network cable into the dock. Box art, updates and cloud saves need it.</li>
+			<li><b>Controllers</b>: plug in USB ones; pair Bluetooth ones (next question). If the buttons are wrong, see <a href="#controllers">Controllers</a>.</li>
+			<li><b>Your games</b>: put them in <code>games/&lt;system&gt;</code> on the SD card or on the NVMe / USB drive (the same folders MiSTer uses), then <b>Settings › Look for games</b> and <b>Get box art and details</b>.</li>
+			<li><b>Cores</b>: <b>Settings › Update All</b> (or Update) gets them, as on any MiSTer.</li>
+		</ul>
+	</details>
+	<details><summary>How do I pair a Bluetooth controller?</summary>
+		<p>Hold the SS1's <b>BT button</b> on the console, or open <b>Settings › Bluetooth</b> and choose Pair. Phosphor looks for 90 seconds; put the controller in pairing mode while it counts down:</p>
+		<ul>
+			<li><b>8BitDo:</b> Start + Y (Switch mode) or Start + X (X-input);</li>
+			<li><b>Xbox:</b> hold the pair button on top;</li>
+			<li><b>PlayStation:</b> hold Share + PS until the light flashes;</li>
+			<li><b>Switch Pro:</b> hold the sync button on top.</li>
+		</ul>
+		<p>Paired controllers are listed below; press X twice on one to forget it, or <b>Delete all pairings</b> at the end of the list.</p>
+	</details>
+	<details><summary>How do I pair the phone app or Phosphor for Windows?</summary>
+		<p><b>Settings › Remote access</b>, turn it on and choose <b>Pair a device</b>. Type the 6-digit code the TV shows into the app. Only paired devices get in, only on your home network.</p>
+	</details>
+	<details><summary>How do I set up box art sources that need a login?</summary>
+		<p>libretro, ArcadeDB and LaunchBox need nothing. ScreenScraper needs your free screenscraper.fr login, TheGamesDB a free API key, IGDB a free Twitch developer app. Type them into Phosphor for Windows (<b>Settings › Box art</b>), or put them in <code>phosphor/config/scraper.ini</code> on the SD card. Turn sources on or off and set their order in <b>Settings › Box art sources</b>.</p>
+	</details>
+	<details><summary>How do I set up cloud saves?</summary>
+		<p><b>Settings › Cloud saves › Storage place</b>: your own WebDAV, SFTP or SMB share, or Google Drive, Dropbox or OneDrive (added from the phone app, which does the sign-in). After that, saves, save states and core settings go there after each game, with older versions kept. Getting them back is only on request, with a preview first. WiFi, Bluetooth pairings and passwords are never sent.</p>
+	</details>
+	<details><summary>How do I set up RetroAchievements?</summary>
+		<p><b>Settings › RetroAchievements › Account</b>: log in once (only a login token is kept), then <b>RetroAchievements cores › get updates</b>. Games on those systems then start on the RetroAchievements cores. For <b>Your progress</b>, paste your Web API key from retroachievements.org › Settings › Keys.</p>
+	</details>
+	<details><summary>How do I use a CRT?</summary>
+		<p><b>Settings › Video › CRT mode</b> puts Phosphor's own menu on the analog port at the TV's timing (240p, 288p, 480i, 576i, or 480p for VGA monitors). Pick the video profile for your cable on the same screen (RGHV, RGsB, SVID, YPbP) and set the DIP switches it names; the <a href="#video">DIP switch table</a> is below. A change you try goes back by itself unless you keep it, so a mode the TV can't show is never stuck.</p>
+	</details>
+	<details><summary>How do I set up Repair all drives?</summary>
+		<p>Plug a spare USB stick into the SS1 (exFAT, 1 GB free), then <b>Settings › Storage › Repair all drives</b> and choose it. Phosphor puts a copy of MiSTer's Linux on it (about 400 MB). From then on, <b>Restart and repair all drives</b> repairs the SD card and every other drive in one restart. Keep the stick plugged in or in a drawer; it's hidden from everything else (see <a href="#drives">below</a>).</p>
+	</details>
+
+	<h2 id="controllers">Controllers</h2>
+	<details><summary>How do controller mappings work?</summary>
+		<p>There's one mapping per controller, MiSTer's own, and it's used everywhere: Phosphor's menus, MiSTer's menu and every core. MiSTer already knows most controllers (its built-in controller list), so they work straight away. For one it doesn't know, or to set one up your way, you map it once.</p>
+		<p>In Phosphor's menus, A, B, X and Y are always the buttons <b>printed</b> on your controller, by its layout (Xbox, PlayStation or Nintendo). Mapping it, or resetting the mapping, never moves them.</p>
+		<p>In <b>Settings › Controllers</b> each controller says which it uses: MiSTer's automatic mapping, or its own (custom) mapping.</p>
+	</details>
+	<details><summary>How do I map my controller?</summary>
+		<ol>
+			<li><b>Settings › Controllers</b>, pick the controller, press <b>A (Map buttons)</b>.</li>
+			<li>Press each button the screen asks for. The drawing shows which one. It starts with the D-pad so MiSTer learns how the controller reports it.</li>
+			<li>It's saved at the end. <b>Select + Start</b> cancels with nothing saved.</li>
+			<li>Press <b>Y (Test it)</b> to check: every press lights up, and the tester shows what MiSTer receives.</li>
+		</ol>
+		<p>Every change is backed up first (<b>Backups</b> on the same screen puts an earlier one back). <b>X (Reset to automatic)</b> goes back to MiSTer's built-in mapping. Left/right picks a different drawing if the one shown doesn't look like your controller; that only changes the picture and which printed button is A in the menus.</p>
+	</details>
+	<details><summary>My controller or adapter isn't working, or isn't listed</summary>
+		<ul>
+			<li><b>Not listed in Settings › Controllers at all:</b> try another USB cable (some only charge) and another port. For Bluetooth, pair it again. If it's an 8BitDo or an adapter with modes (X-input, D-input, Switch, macOS), switch to <b>X-input</b> or <b>Switch</b> mode and plug it in again.</li>
+			<li><b>Listed, but buttons are wrong or missing:</b> map it (previous question). If the tester shows nothing for a button, the controller isn't sending it in this mode; try another mode.</li>
+			<li><b>Works in the menu but not in a game:</b> check the core's own input settings in MiSTer's menu (in the game: menu button › MiSTer menu).</li>
+			<li><b>Original controllers in the front ports</b> (SNAC) are handled by each core: look in the core's OSD settings. <b>Settings › Front ports &amp; memory cards</b> shows what's plugged in.</li>
+			<li><b>Still nothing:</b> it may need a Linux driver MiSTer doesn't have. Make a report (<b>Settings › Diagnostics › X</b>); it lists every controller the SuperStation sees and how. Post it in <b>#help</b> on the <a href="https://discord.gg/rTewZCCCFR">Phosphor Discord</a> with the controller's or adapter's make and model. Adapters people have tested are added as they come.</li>
+		</ul>
+	</details>
+	<details><summary>My controller turns off by itself</summary>
+		<p>Most wireless controllers sleep after a few minutes without input to save the battery. Press any button to wake it. 8BitDo controllers also switch off when the home button is <i>held</i>; Phosphor's in-game menu opens with a tap, so that never happens by accident.</p>
+	</details>
 
 	<h2 id="how">How Phosphor works</h2>
 	<details><summary>What is Phosphor?</summary>
@@ -156,6 +264,16 @@ footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 
 	</details>
 	<details><summary>My games drive changed from usb0 to usb1. Are my games gone?</summary>
 		<p>No. Nothing on the drive changed, only the number MiSTer gave it. Since 0.27.54 Phosphor's library follows the drive by its ID. Since 0.27.56 the repair stick, which caused most of these shuffles, never takes a number, so the dock's NVMe drive keeps <code>usb0</code>. For Console Mode, SS1 Tool's <b>Drive guard</b> keeps the games drive at <code>usb0</code>.</p>
+	</details>
+	<details><summary>The dock's NVMe drive: oddities, and what Phosphor does about them</summary>
+		<p>The dock's NVMe slot is a JMicron USB-to-NVMe bridge. It behaves in a few odd ways, and Phosphor handles each one:</p>
+		<ul>
+			<li><b>An empty slot shows up as a phantom drive</b> that never becomes ready and can hold up shutting down. Phosphor removes it after a minute (the SS1's own rule did it after 15 seconds, which also took away a real drive that was slow to start).</li>
+			<li><b>Stuck after a restart</b> ("Unit Not Ready"): a restart keeps the dock powered, and the bridge can come back without its drive. Phosphor looks for a drive it has seen before again every 30 seconds for 3 minutes (0.27.55), and every restart now lets the USB devices go first (0.27.56). If it still isn't there, the TV says to unplug the SuperStation's power for 10 seconds, which always clears it.</li>
+			<li><b>A different drive number</b>: MiSTer numbers USB drives in the order they come up, so the NVMe drive can be <code>usb0</code> one day and <code>usb1</code> the next. Phosphor's library follows it by its drive ID, and the repair stick no longer takes a number.</li>
+			<li><b>Gen 4 NVMe drives</b> can make the SuperStation reboot by itself or show file system errors. Use a Gen 3 drive.</li>
+			<li><b>"Not shut down safely"</b> after pulling the power: Shut down safely (Select + Start) first. If it happens, <b>Settings › Storage › Repair all drives</b> fixes the SD card and the NVMe drive in one restart.</li>
+		</ul>
 	</details>
 	<details><summary>The NVMe drive was missing after a restart</summary>
 		<p>A restart keeps the dock powered, and its NVMe adapter (a JMicron bridge) can come up stuck ("Unit Not Ready"). Since 0.27.55 Phosphor looks for a drive it has seen before again every 30 seconds for 3 minutes, and stops the moment it's there. It never touches the dock while a drive is on it. If the drive still isn't back, the TV says to unplug the SuperStation's power for 10 seconds, which always clears it.</p>

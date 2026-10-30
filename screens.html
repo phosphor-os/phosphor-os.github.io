@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phosphor Screens</title>
+<meta name="description" content="Every screen in Phosphor OS on the SuperStation One: the library, search, box art, the in-game menu, Settings, controllers, storage, backups, video, updates and diagnostics, with where to find each one.">
+<link rel="canonical" href="https://phosphor-os.github.io/screens.html">
+<meta name="theme-color" content="#0e0e10">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<style>
+@font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/inter-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/inter-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/inter-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "Phos Mono"; font-weight: 400 600; font-style: normal; font-display: swap; src: url("fonts/dejavu-sans-mono.woff2") format("woff2"); }
+</style>
+<style>
+:root { --glass: #0e0e10; --panel: #17171b; --line: #2a2a31; --glow: #ffb347; --text: #ece8e1; --dim: #8d8a85; color-scheme: dark; }
+* { box-sizing: border-box; }
+html { background: var(--glass); }
+body { margin: 0; background: var(--glass); color: var(--text); font: 400 1.0625rem/1.6 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--glow); text-underline-offset: .2em; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--glow); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 52rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-top: 1.75rem; }
+header.top nav { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: .9375rem; }
+.mark { font: 500 1.125rem/1 "Phos Mono", ui-monospace, monospace; letter-spacing: .32em; color: var(--glow); text-decoration: none; }
+h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 600; letter-spacing: -.01em; margin: 3rem 0 .4rem; }
+.lede { color: var(--dim); margin: 0 0 1.2rem; max-width: 40rem; }
+.jump { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; font-size: .9375rem; margin: 0 0 1rem; }
+h2 { font-size: 1.3rem; font-weight: 600; margin: 3rem 0 1rem; scroll-margin-top: 1rem; }
+details { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; margin: .6rem 0; padding: 0 1.1rem; }
+summary { cursor: pointer; font-weight: 500; padding: .9rem 0; }
+details[open] summary { border-bottom: 1px solid var(--line); margin-bottom: .8rem; }
+details p, details ul, details ol { margin: 0 0 .9rem; }
+details ul, details ol { padding-left: 1.2rem; }
+code { font: .875em "Phos Mono", ui-monospace, monospace; background: #222228; border: 1px solid var(--line); border-radius: 4px; padding: .05em .35em; overflow-wrap: anywhere; }
+.dim { color: var(--dim); font-size: .9375rem; }
+.tw { overflow-x: auto; margin: 0 0 .9rem; }
+table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: .9375rem; }
+td:first-child { min-width: 12rem; }
+td code { white-space: nowrap; }
+th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--dim); font-weight: 500; font-size: .8125rem; }
+tr:last-child td { border-bottom: 0; }
+footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 3rem; color: var(--dim); font-size: .9375rem; }
+
+.gal { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap: 1.4rem; margin: 0 0 1rem; }
+.gal figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.gal img { display: block; width: 100%; height: auto; }
+.gal figcaption { padding: .8rem 1rem 1rem; font-size: .9375rem; }
+.gal figcaption b { display: block; font-weight: 600; margin-bottom: .2rem; }
+.gal .where { color: var(--glow); font-size: .875rem; display: block; margin-top: .35rem; }
+.wrap.wide { max-width: 76rem; }
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+	<a class="mark" href="./">PHOSPHOR</a>
+	<nav aria-label="Sections">
+		<a href="./#tour">What it does</a>
+		<a href="screens.html" aria-current="page">Screens</a>
+		<a href="./#download">Download</a>
+		<a href="faq.html">FAQ</a>
+		<a href="https://discord.gg/rTewZCCCFR">Discord</a>
+	</nav>
+</header>
+
+<main class="wrap wide">
+	<h1>Every screen</h1>
+	<p class="lede">Real screenshots from a SuperStation One running Phosphor 0.27.56, with where to find each screen. Network names and addresses in them are made up. Box art belongs to its publishers. Select any picture to see it full size.</p>
+	<p class="jump"><a href="#library">Home and library</a><a href="#art">Finding games and box art</a><a href="#ingame">In a game</a><a href="#controllers">Controllers and memory cards</a><a href="#settings">Settings</a><a href="#storage">Storage and backups</a><a href="#system">Updates and the system</a></p>
+
+	<h2 id="library">Home and library</h2>
+	<div class="gal">
+		<figure><a href="img/tv-home.webp"><img src="img/tv-home.webp" width="1280" height="720" loading="lazy" alt="Home: Your library by kind of system, with game counts, and the last game played. A opens, X plays the last game, Y searches, the menu button opens Settings."></a><figcaption><b>Home</b>Your library by kind of system, with game counts, and the last game played. A opens, X plays the last game, Y searches, the menu button opens Settings.<span class="where">Home</span></figcaption></figure>
+		<figure><a href="img/tv-systems.webp"><img src="img/tv-systems.webp" width="1280" height="720" loading="lazy" alt="A kind of system: Each system with its games, who made it, when, how many sold and what it's remembered for."></a><figcaption><b>A kind of system</b>Each system with its games, who made it, when, how many sold and what it's remembered for.<span class="where">Home › Cartridge (or Disc, Handheld, Arcade, Computer)</span></figcaption></figure>
+		<figure><a href="img/tv-games.webp"><img src="img/tv-games.webp" width="1280" height="720" loading="lazy" alt="A system's games: Box art, year, publisher, players, genre and description. A plays, X favourites, Y links a hack to the game it's based on, SELECT picks the core."></a><figcaption><b>A system's games</b>Box art, year, publisher, players, genre and description. A plays, X favourites, Y links a hack to the game it's based on, SELECT picks the core.<span class="where">Home › a kind › a system</span></figcaption></figure>
+		<figure><a href="img/tv-search.webp"><img src="img/tv-search.webp" width="1280" height="720" loading="lazy" alt="Search: Every system at once. Type part of a name with the on-screen keyboard."></a><figcaption><b>Search</b>Every system at once. Type part of a name with the on-screen keyboard.<span class="where">Home › Y</span></figcaption></figure>
+		<figure><a href="img/tv-recent.webp"><img src="img/tv-recent.webp" width="1280" height="720" loading="lazy" alt="Recently played: The last games you played, from any system."></a><figcaption><b>Recently played</b>The last games you played, from any system.<span class="where">Home › Utility</span></figcaption></figure>
+	</div>
+
+	<h2 id="art">Finding games and box art</h2>
+	<div class="gal">
+		<figure><a href="img/tv-scan.webp"><img src="img/tv-scan.webp" width="1280" height="720" loading="lazy" alt="Look for games: Goes through the SD card and the games drive and works out what each game is. Run it after adding games."></a><figcaption><b>Look for games</b>Goes through the SD card and the games drive and works out what each game is. Run it after adding games.<span class="where">Settings › Look for games</span></figcaption></figure>
+		<figure><a href="img/tv-boxart.webp"><img src="img/tv-boxart.webp" width="1280" height="720" loading="lazy" alt="Get box art and details: Asks your sources in order and shows each system's progress. B twice stops; it carries on next time."></a><figcaption><b>Get box art and details</b>Asks your sources in order and shows each system's progress. B twice stops; it carries on next time.<span class="where">Settings › Get box art and details</span></figcaption></figure>
+		<figure><a href="img/tv-sources.webp"><img src="img/tv-sources.webp" width="1280" height="720" loading="lazy" alt="Box art sources: Turn sources on or off and change their order. Some need a free login, put in phosphor/config/scraper.ini or from Phosphor for Windows."></a><figcaption><b>Box art sources</b>Turn sources on or off and change their order. Some need a free login, put in phosphor/config/scraper.ini or from Phosphor for Windows.<span class="where">Settings › Box art sources</span></figcaption></figure>
+		<figure><a href="img/tv-settings-boxart.webp"><img src="img/tv-settings-boxart.webp" width="1280" height="720" loading="lazy" alt="Box art in Settings: How many games have art, how many are still to do, and how many no source knew."></a><figcaption><b>Box art in Settings</b>How many games have art, how many are still to do, and how many no source knew.<span class="where">Settings › Get box art and details</span></figcaption></figure>
+	</div>
+
+	<h2 id="ingame">In a game</h2>
+	<div class="gal">
+		<figure><a href="img/tv-ingame.webp"><img src="img/tv-ingame.webp" width="1280" height="720" loading="lazy" alt="The in-game menu: Tap the menu button in any game: back to the game, load another game, MiSTer menu, quit to Phosphor (and change disc, achievements when they apply)."></a><figcaption><b>The in-game menu</b>Tap the menu button in any game: back to the game, load another game, MiSTer menu, quit to Phosphor (and change disc, achievements when they apply).<span class="where">In a game › menu button</span></figcaption></figure>
+		<figure><a href="img/tv-ingame-mister.webp"><img src="img/tv-ingame-mister.webp" width="1280" height="720" loading="lazy" alt="MiSTer's own menu: MiSTer menu opens MiSTer's OSD for the core's own settings."></a><figcaption><b>MiSTer's own menu</b>MiSTer menu opens MiSTer's OSD for the core's own settings.<span class="where">In a game › menu button › MiSTer menu</span></figcaption></figure>
+	</div>
+
+	<h2 id="controllers">Controllers and memory cards</h2>
+	<div class="gal">
+		<figure><a href="img/tv-settings-ctrl.webp"><img src="img/tv-settings-ctrl.webp" width="1280" height="720" loading="lazy" alt="Controllers in Settings: Map, test and back up your USB and Bluetooth controllers."></a><figcaption><b>Controllers in Settings</b>Map, test and back up your USB and Bluetooth controllers.<span class="where">Settings › Controllers</span></figcaption></figure>
+		<figure><a href="img/tv-controllers.webp"><img src="img/tv-controllers.webp" width="1280" height="720" loading="lazy" alt="Your controllers: Each controller with a drawing that matches it and whether it uses MiSTer's automatic mapping or yours. Left/right changes the drawing."></a><figcaption><b>Your controllers</b>Each controller with a drawing that matches it and whether it uses MiSTer's automatic mapping or yours. Left/right changes the drawing.<span class="where">Settings › Controllers</span></figcaption></figure>
+		<figure><a href="img/tv-tester.webp"><img src="img/tv-tester.webp" width="1280" height="720" loading="lazy" alt="Controller tester: Every press lights up; sticks and triggers show how far they go; and you see what MiSTer receives."></a><figcaption><b>Controller tester</b>Every press lights up; sticks and triggers show how far they go; and you see what MiSTer receives.<span class="where">Settings › Controllers › Y</span></figcaption></figure>
+		<figure><a href="img/tv-mapping.webp"><img src="img/tv-mapping.webp" width="1280" height="720" loading="lazy" alt="Mapping a controller: MiSTer's own mapping, one button at a time, in a window nothing interrupts. Select + Start cancels with nothing saved."></a><figcaption><b>Mapping a controller</b>MiSTer's own mapping, one button at a time, in a window nothing interrupts. Select + Start cancels with nothing saved.<span class="where">Settings › Controllers › A</span></figcaption></figure>
+		<figure><a href="img/tv-ports.webp"><img src="img/tv-ports.webp" width="1280" height="720" loading="lazy" alt="Front ports and memory cards: What's plugged into the front ports, the memory card manager, the controller test and memory card backups."></a><figcaption><b>Front ports and memory cards</b>What's plugged into the front ports, the memory card manager, the controller test and memory card backups.<span class="where">Settings › Front ports &amp; memory cards</span></figcaption></figure>
+	</div>
+
+	<h2 id="settings">Settings</h2>
+	<div class="gal">
+		<figure><a href="img/tv-settings-wifi.webp"><img src="img/tv-settings-wifi.webp" width="1280" height="720" loading="lazy" alt="Settings: Each row's panel shows what it's set to and what it's for. WiFi, Bluetooth and Remote access are set up here with the controller."></a><figcaption><b>Settings</b>Each row's panel shows what it's set to and what it's for. WiFi, Bluetooth and Remote access are set up here with the controller.<span class="where">Settings (menu button on the home screen)</span></figcaption></figure>
+		<figure><a href="img/tv-settings-remote.webp"><img src="img/tv-settings-remote.webp" width="1280" height="720" loading="lazy" alt="Remote access: Pair the phone app or Phosphor for Windows with a code shown on the TV. Only paired devices get in; nothing goes over the internet."></a><figcaption><b>Remote access</b>Pair the phone app or Phosphor for Windows with a code shown on the TV. Only paired devices get in; nothing goes over the internet.<span class="where">Settings › Remote access</span></figcaption></figure>
+		<figure><a href="img/tv-settings-video.webp"><img src="img/tv-settings-video.webp" width="1280" height="720" loading="lazy" alt="Video: MiSTer's own video settings, each explained, with a 35-second try."></a><figcaption><b>Video</b>MiSTer's own video settings, each explained, with a 35-second try.<span class="where">Settings › Video</span></figcaption></figure>
+		<figure><a href="img/tv-video.webp"><img src="img/tv-video.webp" width="1280" height="720" loading="lazy" alt="Video settings: CRT mode, HDMI resolution and the rest, per profile (Main, RGHV, RGsB, SVID, YPbP). A tries a change; it goes back by itself unless you keep it."></a><figcaption><b>Video settings</b>CRT mode, HDMI resolution and the rest, per profile (Main, RGHV, RGsB, SVID, YPbP). A tries a change; it goes back by itself unless you keep it.<span class="where">Settings › Video</span></figcaption></figure>
+		<figure><a href="img/tv-retroachievements.webp"><img src="img/tv-retroachievements.webp" width="1280" height="720" loading="lazy" alt="RetroAchievements: Log in, hardcore, pop-ups, the unlock sound, getting the cores, and your progress."></a><figcaption><b>RetroAchievements</b>Log in, hardcore, pop-ups, the unlock sound, getting the cores, and your progress.<span class="where">Settings › RetroAchievements</span></figcaption></figure>
+		<figure><a href="img/tv-screenshots.webp"><img src="img/tv-screenshots.webp" width="1280" height="720" loading="lazy" alt="Screenshots: Both sticks in (L3 + R3) saves a picture of the game or of Phosphor's screen."></a><figcaption><b>Screenshots</b>Both sticks in (L3 + R3) saves a picture of the game or of Phosphor's screen.<span class="where">Settings › Screenshots</span></figcaption></figure>
+		<figure><a href="img/tv-cloud-saves.webp"><img src="img/tv-cloud-saves.webp" width="1280" height="720" loading="lazy" alt="Cloud saves: Your saves to your own storage after each game, with older versions kept."></a><figcaption><b>Cloud saves</b>Your saves to your own storage after each game, with older versions kept.<span class="where">Settings › Cloud saves</span></figcaption></figure>
+		<figure><a href="img/tv-settings-panel.webp"><img src="img/tv-settings-panel.webp" width="1280" height="720" loading="lazy" alt="Backups in Settings: How many snapshots, the newest, where they're kept and the free space there."></a><figcaption><b>Backups in Settings</b>How many snapshots, the newest, where they're kept and the free space there.<span class="where">Settings › Backups</span></figcaption></figure>
+	</div>
+
+	<h2 id="storage">Storage and backups</h2>
+	<div class="gal">
+		<figure><a href="img/tv-settings-storage.webp"><img src="img/tv-settings-storage.webp" width="1280" height="720" loading="lazy" alt="Storage in Settings: The SD card and the NVMe / USB drives: space, checks, a speed test, repairs."></a><figcaption><b>Storage in Settings</b>The SD card and the NVMe / USB drives: space, checks, a speed test, repairs.<span class="where">Settings › Storage</span></figcaption></figure>
+		<figure><a href="img/tv-storage.webp"><img src="img/tv-storage.webp" width="1280" height="720" loading="lazy" alt="Storage: Each drive and how full it is, the checks, and Repair all drives with the last repair's results."></a><figcaption><b>Storage</b>Each drive and how full it is, the checks, and Repair all drives with the last repair's results.<span class="where">Settings › Storage</span></figcaption></figure>
+		<figure><a href="img/tv-backups.webp"><img src="img/tv-backups.webp" width="1280" height="720" loading="lazy" alt="Backups: Snapshots of saves and settings, taken after games and once a day. Restore just the saves, or everything."></a><figcaption><b>Backups</b>Snapshots of saves and settings, taken after games and once a day. Restore just the saves, or everything.<span class="where">Settings › Backups</span></figcaption></figure>
+	</div>
+
+	<h2 id="system">Updates and the system</h2>
+	<div class="gal">
+		<figure><a href="img/tv-settings-guard.webp"><img src="img/tv-settings-guard.webp" width="1280" height="720" loading="lazy" alt="Updates and restore points in Settings: Settings a Linux update can reset, and restore points to roll back to."></a><figcaption><b>Updates and restore points in Settings</b>Settings a Linux update can reset, and restore points to roll back to.<span class="where">Settings › Updates &amp; restore points</span></figcaption></figure>
+		<figure><a href="img/tv-restore-points.webp"><img src="img/tv-restore-points.webp" width="1280" height="720" loading="lazy" alt="Updates and restore points: Your settings inside Linux (each unchanged here) and the restore points saved before each update."></a><figcaption><b>Updates and restore points</b>Your settings inside Linux (each unchanged here) and the restore points saved before each update.<span class="where">Settings › Updates &amp; restore points</span></figcaption></figure>
+		<figure><a href="img/tv-update.webp"><img src="img/tv-update.webp" width="1280" height="720" loading="lazy" alt="Update Phosphor: Check GitHub for updates, or roll back to an earlier version."></a><figcaption><b>Update Phosphor</b>Check GitHub for updates, or roll back to an earlier version.<span class="where">Settings › Update Phosphor (or the yellow icon in the top bar)</span></figcaption></figure>
+		<figure><a href="img/tv-updlog.webp"><img src="img/tv-updlog.webp" width="1280" height="720" loading="lazy" alt="Last update's log: The downloader's log from the last update."></a><figcaption><b>Last update's log</b>The downloader's log from the last update.<span class="where">Settings › Last update's log</span></figcaption></figure>
+		<figure><a href="img/tv-diagnostics.webp"><img src="img/tv-diagnostics.webp" width="1280" height="720" loading="lazy" alt="Diagnostics: Checks the board, cores, storage, video, sound, controllers, network and USB, and saves a report to share."></a><figcaption><b>Diagnostics</b>Checks the board, cores, storage, video, sound, controllers, network and USB, and saves a report to share.<span class="where">Settings › Diagnostics</span></figcaption></figure>
+		<figure><a href="img/tv-about.webp"><img src="img/tv-about.webp" width="1280" height="720" loading="lazy" alt="About this system: Versions of Phosphor, MiSTer's Main, the menu core and Linux, and each drive's free space."></a><figcaption><b>About this system</b>Versions of Phosphor, MiSTer's Main, the menu core and Linux, and each drive's free space.<span class="where">Settings › About this system</span></figcaption></figure>
+	</div>
+</main>
+
+<footer>
+	<div class="wrap">
+		<p>Phosphor is made by f3bandit. It runs on <a href="https://github.com/MiSTer-devel">MiSTer</a>, the open FPGA project by MiSTer-devel and its community, and is unofficial: not made or supported by MiSTer-devel or by the makers of the SuperStation One.</p>
+		<p>Free for personal, non-commercial use. <a href="privacy.html">Privacy</a> · <a href="./#credits">Credits</a> · <a href="https://discord.gg/rTewZCCCFR">Discord</a> · <a href="https://ko-fi.com/W2V228VDIQ">Ko-fi</a></p>
+	</div>
+</footer>
+
+</body>
+</html>

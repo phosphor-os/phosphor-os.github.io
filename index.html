@@ -209,6 +209,7 @@ footer p { margin: 0; max-width: 40rem; }
 	<nav aria-label="Sections">
 		<a href="#tour">What it does</a>
 		<a href="#built">How it's built</a>
+		<a href="screens.html">Screens</a>
 		<a href="#download">Download</a>
 		<a href="faq.html">FAQ</a>
 		<a href="https://discord.gg/rTewZCCCFR">Discord</a>
@@ -221,30 +222,63 @@ footer p { margin: 0; max-width: 40rem; }
 		<p class="lede">Phosphor is unofficial custom firmware for the <strong>SuperStation One</strong>, built on <strong>mainline MiSTer and its Linux</strong>. Pick up a controller and your games are there with box art, ready to play. Memory cards, Bluetooth, WiFi and saves are a few button presses away, on the TV or from your PC.</p>
 		<p class="cta"><a class="go" href="#download">Download the beta</a><span>0.27.56 · SD card image, update and Windows app</span></p>
 		<div class="tv">
-			<div class="screen"><img src="img/tv-home.png" width="1280" height="720" alt="Phosphor's home screen: the library by kind of system (Disc, Cartridge, Handheld, Arcade, Computer, Music) and the last game played, with a disc in the drive shown in the status bar"></div>
+			<div class="screen"><img src="img/tv-home.webp" width="1280" height="720" alt="Phosphor's home screen on a SuperStation One: the library by kind of system (Disc, Cartridge, Handheld, Arcade, Computer) with game counts, and the last game played"></div>
 		</div>
 	</div>
 
 	<section id="tour">
 		<div class="wrap">
 			<h2>Everything from the couch</h2>
-			<p class="intro">These are real screens, drawn by Phosphor's own code at 1280 by 720 (on a 1080p TV it draws every pixel at 1080p), and three from Phosphor for Windows. The games, albums, box art and account are made up for the pictures.</p>
+			<p class="intro">Real screenshots from a SuperStation One running Phosphor 0.27.56, drawn by Phosphor's own code (1280 by 720 here; at 1080p on a 1080p TV). Network names and addresses in them are made up; the disc, music and power pictures and the Windows app use made-up games and albums. Box art belongs to its publishers. <a href="screens.html">See every screen</a>.</p>
 
 			<div class="feature">
-				<div class="shot"><img src="img/tv-games.png" width="1280" height="720" loading="lazy" alt="A system's games: the list, and the highlighted game's box art, year, developer, players, genre and description"></div>
+				<div class="shot"><img src="img/tv-games.webp" width="1280" height="720" loading="lazy" alt="A system's games: the list, and the highlighted game's box art, year, publisher, players, genre and description"></div>
 				<div>
 					<h3>Your library, found for you</h3>
-					<p>Phosphor finds the games on the SD card, a USB drive, NVMe or a network share, works out what each one is, and fetches box art and details from sources you choose.</p>
-					<p>Hacks and translations can point at the game they're based on and share its art.</p>
+					<p>Phosphor finds the games on the SD card, a USB drive, NVMe or a network share, works out what each one is by its contents, and shows box art and details beside the list.</p>
+					<p>Hacks and translations can point at the game they're based on and share its art. X marks a favourite; SELECT picks which core runs a game.</p>
 				</div>
 			</div>
 
 			<div class="feature flip">
+				<div class="shot"><img src="img/tv-systems.webp" width="1280" height="720" loading="lazy" alt="Library, Cartridge: the systems with their game counts, and the highlighted system's icon, maker, year, units sold and what it's remembered for"></div>
+				<div>
+					<h3>Every system, explained</h3>
+					<p>Open Disc, Cartridge, Handheld, Arcade or Computer and each system shows its games, who made it, when, how many sold, and what it's remembered for.</p>
+				</div>
+			</div>
+
+			<div class="feature">
+				<div class="shot"><img src="img/tv-search.webp" width="1280" height="720" loading="lazy" alt="Search for "mario": 28 games across Arcade, Game Boy Advance, NES and Nintendo 64, with the highlighted game's box art and details"></div>
+				<div>
+					<h3>Search everything at once</h3>
+					<p>Press Y on the home screen and type part of a name with the on-screen keyboard. Every system is searched at once, and the results work like any game list.</p>
+				</div>
+			</div>
+
+			<div class="feature flip">
+				<div class="shot"><img src="img/tv-boxart.webp" width="1280" height="720" loading="lazy" alt="Getting box art and details: asking TheGamesDB for an arcade game, how many were found and not found, and each system's progress"></div>
+				<div>
+					<h3>Box art and details, fetched for you</h3>
+					<p><b>Settings › Get box art and details</b> asks the sources you pick (libretro, ArcadeDB, LaunchBox, TheGamesDB, ScreenScraper, IGDB) in your order, and shows each system's progress.</p>
+					<p>It only runs when you start it. Stop it any time with B twice; what it found is kept, and it carries on from there next time. Phosphor for Windows can do it from the PC, much faster.</p>
+				</div>
+			</div>
+
+			<div class="feature">
 				<div class="shot"><img src="img/tv-disc.png" width="1280" height="720" loading="lazy" alt="Library, Disc: the disc in the dock's drive at the top as In the drive, with its name, disc code and box art"></div>
 				<div>
 					<h3>Discs from the dock's drive</h3>
-					<p>Put a PlayStation, Saturn, Mega-CD, PC Engine CD, Neo Geo CD, CD-i or 3DO disc in the dock's drive and it's at the top of <b>Library › Disc</b>, with its name and box art. Press A to play it. Nothing starts by itself.</p>
-					<p>In a game, tap the menu button for Phosphor's in-game menu: back to the game, change disc, the achievements, MiSTer's menu, or quit. Disc support is by Anime0t4ku and bonna79.</p>
+					<p>Put a PlayStation, Saturn, Mega-CD, PC Engine CD, Neo Geo CD, CD-i or 3DO disc in the dock's drive and it's at the top of <b>Library › Disc</b>, with its name and box art. Press A to play it. Nothing starts by itself. Disc support is by Anime0t4ku and bonna79.</p>
+				</div>
+			</div>
+
+			<div class="feature flip">
+				<div class="shot"><img src="img/tv-ingame.webp" width="1280" height="720" loading="lazy" alt="Phosphor's in-game menu over Micro Mages: the game's box art and description, Back to the game, Load game, MiSTer menu and Quit to Phosphor"></div>
+				<div>
+					<h3>A menu in every game</h3>
+					<p>Tap the menu button in a game for Phosphor's in-game menu: back to the game, load another game from any core, change disc, the game's achievements, MiSTer's own menu (the OSD) for core settings, or quit to Phosphor.</p>
+					<p>It's a tap, not a hold, so 8BitDo controllers (which switch off when the home button is held) are safe.</p>
 				</div>
 			</div>
 
@@ -267,20 +301,20 @@ footer p { margin: 0; max-width: 40rem; }
 			</div>
 
 			<div class="feature">
-				<div class="shot"><img src="img/tv-retroachievements.png" width="1280" height="720" loading="lazy" alt="Settings, RetroAchievements: the account, hardcore, pop-ups, unlock sound, the cores, the Web API key, matching the library and your progress"></div>
+				<div class="shot"><img src="img/tv-retroachievements.webp" width="1280" height="720" loading="lazy" alt="Settings, RetroAchievements: the account, hardcore, pop-ups, unlock sound, the RetroAchievements cores, the Web API key, matching the library and your progress"></div>
 				<div>
 					<h3>RetroAchievements</h3>
 					<p>Earn achievements in NES, SNES, Game Boy, GBA, N64, PlayStation, Mega Drive, Mega-CD, Master System, Game Gear, PC Engine and Atari 7800 games. Log in once on the TV: only a login token is kept, never your password.</p>
-					<p>Hardcore, pop-ups and the unlock sound are a press away, game pages show how many you've earned, and the in-game menu lists them. Built on odelot's MiSTer RetroAchievements work and the RetroAchievements team's rcheevos.</p>
+					<p>Hardcore, pop-ups and the unlock sound are a press away, and the in-game menu lists the game's achievements. Built on odelot's MiSTer RetroAchievements work and the RetroAchievements team's rcheevos.</p>
 				</div>
 			</div>
 
 			<div class="feature flip">
-				<div class="shot"><img src="img/tv-tester.png" width="1280" height="720" loading="lazy" alt="The controller tester: a drawing of the controller with the pressed buttons lit, stick positions and trigger percentages"></div>
+				<div class="shot"><img src="img/tv-tester.webp" width="1280" height="720" loading="lazy" alt="The controller tester: an 8BitDo controller drawn Xbox-style, A and the left trigger lit, stick positions, the trigger at 31% and what MiSTer receives"></div>
 				<div>
 					<h3>Controllers, mapped and tested</h3>
-					<p>Every USB and Bluetooth controller is listed with a drawing that matches it: Xbox, PlayStation, Switch, Saturn, arcade sticks and leverless layouts.</p>
-					<p>Map buttons and sticks the way MiSTer does, then open the tester and watch each press light up on the drawing. Mappings are backed up before every change and can be put back to automatic.</p>
+					<p><b>Settings › Controllers</b> lists every USB and Bluetooth controller with a drawing that matches it: Xbox, PlayStation, Switch, Saturn, arcade sticks and leverless layouts. Y opens the tester: every press lights up, sticks and triggers show how far they go, and you see exactly what MiSTer receives.</p>
+					<p>A maps the buttons the way MiSTer does, one prompt at a time, in a window nothing else can interrupt; Select + Start cancels with nothing saved. Mappings are backed up before every change and can be put back to automatic.</p>
 				</div>
 			</div>
 
@@ -288,56 +322,46 @@ footer p { margin: 0; max-width: 40rem; }
 				<div class="shot"><img src="img/win-memcards.png" width="1440" height="900" loading="lazy" alt="Phosphor for Windows: a memory card from the library, with each save's icon, title, game and blocks, and buttons to copy, move or download saves"></div>
 				<div>
 					<h3>Memory cards, save by save</h3>
-					<p>Back up the PlayStation memory cards in the front ports into a library on the SD card, one version per backup. Copy or move single saves between cards, download them for an emulator, and put a whole card back.</p>
+					<p>Back up the PlayStation memory cards in the front ports into a library on the SD card (<b>Settings › Front ports &amp; memory cards</b>), one version per backup. Copy or move single saves between cards, download them for an emulator, and put a whole card back.</p>
 					<p>The card is always backed up before anything is written. The ports are only read while you're using them; the rest of the time they belong to your games.</p>
 				</div>
 			</div>
 
 			<div class="feature flip">
-				<div class="shot"><img src="img/tv-bluetooth.png" width="1280" height="720" loading="lazy" alt="Bluetooth: pair a controller, the paired controllers and whether they're connected"></div>
-				<div>
-					<h3>Bluetooth and WiFi without a keyboard</h3>
-					<p>Pair a controller by putting it in pairing mode. Join a network with the on-screen keyboard. Both use MiSTer's own setup, so nothing is set up twice.</p>
-				</div>
-			</div>
-
-			<div class="feature">
-				<div class="shot"><img src="img/tv-settings-panel.png" width="1280" height="720" loading="lazy" alt="Settings with Cloud saves highlighted; the panel beside the list shows where saves go, when they were last sent, and what the setting does"></div>
+				<div class="shot"><img src="img/tv-settings-wifi.webp" width="1280" height="720" loading="lazy" alt="Settings with WiFi highlighted: the network, signal, address and saved networks in the panel beside the list"></div>
 				<div>
 					<h3>Settings that explain themselves</h3>
-					<p>Move down the list and the panel beside it follows: what each setting is set to right now, and what it's for, in plain words.</p>
-					<p>Each status is asked for once, when you stop on a row. Nothing is polled while you look.</p>
+					<p>Move down the list and the panel beside it follows: what each setting is set to right now, and what it's for, in plain words. WiFi and Bluetooth are set up right on the TV with the on-screen keyboard and the controller, using MiSTer's own setup.</p>
 				</div>
 			</div>
 
-			<div class="feature flip">
-				<div class="shot"><img src="img/tv-cloud-saves.png" width="1280" height="720" loading="lazy" alt="Cloud saves: where saves go, when they were last sent, send now and get saves back"></div>
+			<div class="feature">
+				<div class="shot"><img src="img/tv-backups.webp" width="1280" height="720" loading="lazy" alt="Backups: 20 snapshots of saves and settings on the SD card, each taken after a game, with Back up now"></div>
 				<div>
 					<h3>Saves kept safe</h3>
-					<p>Backups of saves and settings on the SD card, NVMe or your NAS, taken when you leave a game and once a day. Cloud saves to your own WebDAV, SFTP, SMB, Google Drive, Dropbox or OneDrive, shared between MiSTers if you like.</p>
-				</div>
-			</div>
-
-			<div class="feature">
-				<div class="shot"><img src="img/tv-storage.png" width="1280" height="720" loading="lazy" alt="Storage: the SD card and an NVMe drive with their size and free space, quick check, speed test and repair"></div>
-				<div>
-					<h3>Drives you can check</h3>
-					<p>See how full the SD card, NVMe and USB drives are, and check them from the couch: a quick check, whether Windows will complain about the card, a speed test, the NVMe drive's own health report, and a file system repair for NVMe and USB drives.</p>
-					<p>All drives at once, without a PC: Phosphor restarts from a copy of MiSTer's Linux on a spare USB stick and repairs the SD card, the NVMe drive and any other USB drives while nothing is using them, shows each one on the TV, and starts again.</p>
-					<p>Checks only read, except the speed test and repairs, which say so first.</p>
+					<p>Snapshots of your saves and settings on the SD card, NVMe or your NAS, taken when you leave a game and once a day. Cloud saves go to your own WebDAV, SFTP, SMB, Google Drive, Dropbox or OneDrive, shared between MiSTers if you like.</p>
 				</div>
 			</div>
 
 			<div class="feature flip">
-				<div class="shot"><img src="img/tv-updating.png" width="1280" height="720" loading="lazy" alt="Updating Phosphor from 0.27.23 to 0.27.24: a progress bar and the steps, with the modules being updated"></div>
+				<div class="shot"><img src="img/tv-storage.webp" width="1280" height="720" loading="lazy" alt="Storage: the SD card and the NVMe drive with how full they are, checks and repairs, and Repair all drives: ready, with the last repair's results"></div>
 				<div>
-					<h3>Updates you can watch, and undo</h3>
-					<p>Copy an update to the SD card, pick it on the TV and press Install. Phosphor keeps a copy of the version you had, shows each step on screen, and restarts the SuperStation by itself when it's done. Going back to the version before is one press.</p>
-					<p>MiSTer's Update and Update All run exactly as MiSTer runs them, with a restore point saved first, so Main, the menu core and Linux can be rolled back too.</p>
+					<h3>Drives you can check, and repair</h3>
+					<p>See how full the SD card, NVMe and USB drives are, and check them from the couch: a quick check, a speed test, the NVMe drive's own health report, and a file system repair.</p>
+					<p><b>Repair all drives</b> fixes them all without a PC: one restart into a copy of MiSTer's Linux on a spare USB stick repairs the SD card, the NVMe drive and any other drives while nothing is using them. The stick stays hidden and read-only the rest of the time, so nothing else writes to it. <a href="faq.html#drives">How it works</a></p>
 				</div>
 			</div>
 
 			<div class="feature">
+				<div class="shot"><img src="img/tv-restore-points.webp" width="1280" height="720" loading="lazy" alt="Updates and restore points: settings a Linux update can reset, each unchanged, and three restore points saved before Get cores and Update All"></div>
+				<div>
+					<h3>Updates you can undo</h3>
+					<p>MiSTer's Update and Update All run exactly as MiSTer runs them, with a restore point saved first, so Main, the menu core and the kernel can be rolled back. Settings a Linux update puts back to stock (network address, SSH keys, host name) are kept and put back when you ask.</p>
+					<p>Phosphor's own updates install from a yellow icon in the top bar, keep the version you had, and go back with one press.</p>
+				</div>
+			</div>
+
+			<div class="feature flip">
 				<div class="shot"><img src="img/tv-power.png" width="1280" height="720" loading="lazy" alt="Diagnostics with the Power section: the MiSTer lost power three times during updates, and what helps (example events)"></div>
 				<div>
 					<h3>It knows when it's the power</h3>
@@ -346,7 +370,7 @@ footer p { margin: 0; max-width: 40rem; }
 				</div>
 			</div>
 
-			<div class="feature flip">
+			<div class="feature">
 				<div class="shot"><img src="img/win-home.png" width="1440" height="900" loading="lazy" alt="Phosphor for Windows: the library by kind of system, tools, and the last game played with Play on TV"></div>
 				<div>
 					<h3>Phosphor for Windows</h3>
@@ -354,6 +378,8 @@ footer p { margin: 0; max-width: 40rem; }
 					<p>Edit details, start a game on the TV, control the music player and send Steam soundtracks, follow your RetroAchievements, manage memory cards, controllers, drives, network, video settings and MiSTer.ini, and flash or test an SD card. Everything stays on your home network.</p>
 				</div>
 			</div>
+
+			<p class="intro"><a href="screens.html">See every screen in Phosphor</a>: the library, search, box art, the in-game menu, every page of Settings, controllers, storage, backups, video, updates and diagnostics.</p>
 		</div>
 	</section>
 
