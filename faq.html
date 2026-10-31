@@ -185,7 +185,20 @@ footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 
 		<p>No. Looking for games, fetching box art and installing updates only happen when you choose them. Phosphor only goes online for the box art sources you pick, your own storage for cloud saves, and MiSTer's update servers when you run an update.</p>
 	</details>
 	<details><summary>Where does the box art come from?</summary>
-		<p>Six sources. libretro, ArcadeDB and LaunchBox need no account. ScreenScraper needs your free screenscraper.fr login, TheGamesDB a free API key, and IGDB a free Twitch developer app. You choose which ones are used.</p>
+		<p>Seven sources, asked in the order you choose. <b>Local files</b> comes first: box art you already have, no account and no network (next question). libretro, ArcadeDB and LaunchBox need no account. ScreenScraper needs your free screenscraper.fr login, TheGamesDB a free API key, and IGDB a free Twitch developer app. You choose which ones are used.</p>
+	</details>
+	<details id="localart"><summary>Can it use box art I already have?</summary>
+		<p>Yes: that's the <b>Local files</b> source (0.27.60 and later), on by default. On the SuperStation's drives (the SD card, USB drives, a network share) it uses:</p>
+		<ul>
+			<li><b>gamelist.xml</b> files (EmulationStation, Skraper): the entry for that very game file, its picture and details.</li>
+			<li><b>media folders</b> next to your games, or a folder or two up: <code>media/box2d</code>, <code>covers</code>, <code>boxart</code>, <code>media</code> itself, then <code>box3d</code>. A picture named like the game, with or without the region and year: <code>Gamename.png</code> works for <code>Gamename (USA) (1999).sfc</code>. <code>media/&lt;name&gt;.txt</code> is used as the description.</li>
+			<li>The <b>MiSTer artwork packs</b> Update All installs (<code>docs/&lt;system&gt;/Artwork</code>), matched the way the packs say: the file name, the pack's index, the CRC of a renamed file, then a title only one game has. Their details (year, genre, developer, players, description) come too.</li>
+		</ul>
+		<p>Phosphor for Windows can also use <b>a folder on your PC</b>: Settings › Box art › Local files, then type the folder or choose Browse. A Skraper or ES-DE media folder, LaunchBox's Images folder or a pack you downloaded all work. Folders named for a system ("snes", "Mega Drive") are matched to that system, front covers come before 3D boxes, and screenshots, title screens and logos are left out.</p>
+		<p>Nothing in any of these folders is changed: pictures are copied into Phosphor's own store, made smaller.</p>
+	</details>
+	<details><summary>Can I look up just one system, or one game?</summary>
+		<p>Yes. In Phosphor for Windows, Settings › Box art has a <b>Look up</b> choice: all games or one system, for Look up on this PC and Look up on the SS1. Games of that system that weren't found before are asked again. A game's page has <b>Look it up now</b>: that game alone, straight away.</p>
 	</details>
 	<details><summary>Why look up box art on the PC instead of the SuperStation?</summary>
 		<p>It's much faster. The PC fetches the pictures and makes the box art, then sends it to the SuperStation.</p>
@@ -221,6 +234,9 @@ footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 1.5rem 0 
 	<h2 id="pc">Phosphor for Windows</h2>
 	<details><summary>How do I pair it with my SuperStation?</summary>
 		<p>On the TV, open <b>Settings › Remote access</b>, turn it on and choose <b>Pair a device</b>. The TV shows the address and a 6-digit code to type into Phosphor for Windows. If the router later gives the SuperStation a new address, the app finds it again on your network.</p>
+	</details>
+	<details><summary>Can I use it with the mouse?</summary>
+		<p>Yes. Everything can be clicked, and so can the key hints along the bottom: Back, Open, Search, and the LB/RB tabs (click the left half to go left). The mouse's back button goes back, and so does a right-click outside a text box. A keyboard or a controller plugged into the PC works too.</p>
 	</details>
 	<details><summary>Why can't the app change WiFi, pairing or Bluetooth?</summary>
 		<p>On purpose. A paired device could otherwise lock you out of your own SuperStation, so those can only be changed on the TV.</p>
